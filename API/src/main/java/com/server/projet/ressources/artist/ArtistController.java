@@ -1,8 +1,8 @@
-package com.server.projet.ressources;
+package com.server.projet.ressources.artist;
 
-import com.server.projet.ressources.bdd.Artist;
-import com.server.projet.ressources.bdd.ArtistRepository;
-import com.server.projet.ressources.bdd.UserRepository;
+import com.server.projet.ressources.artist.Artist;
+import com.server.projet.ressources.artist.ArtistRepository;
+import com.server.projet.ressources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("artist")
-public class ArtistRessource {
+public class ArtistController {
     @Autowired
     private ArtistRepository artistRepository;
     @Autowired

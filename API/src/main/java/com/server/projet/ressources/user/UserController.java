@@ -1,7 +1,7 @@
-package com.server.projet.ressources;
+package com.server.projet.ressources.user;
 
-import com.server.projet.ressources.bdd.User;
-import com.server.projet.ressources.bdd.UserRepository;
+import com.server.projet.ressources.user.User;
+import com.server.projet.ressources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("user")
-public class UserRessource {
+public class UserController {
     @Autowired
     private UserRepository userRepository;
 

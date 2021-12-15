@@ -1,4 +1,6 @@
-package com.server.projet.ressources.bdd;
+package com.server.projet.ressources.artist;
+
+import com.server.projet.ressources.song.Song;
 
 import javax.persistence.*;
 import java.io.Serializable;

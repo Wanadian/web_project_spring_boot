@@ -1,9 +1,9 @@
-package com.server.projet.ressources;
+package com.server.projet.ressources.song;
 
-import com.server.projet.ressources.bdd.Artist;
-import com.server.projet.ressources.bdd.ArtistRepository;
-import com.server.projet.ressources.bdd.Song;
-import com.server.projet.ressources.bdd.SongRepository;
+import com.server.projet.ressources.artist.Artist;
+import com.server.projet.ressources.artist.ArtistRepository;
+import com.server.projet.ressources.song.Song;
+import com.server.projet.ressources.song.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Path("song")
-public class SongRessource {
+public class SongController {
     @Autowired
     private SongRepository songRepository;
     @Autowired

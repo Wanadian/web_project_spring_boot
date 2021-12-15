@@ -1,4 +1,6 @@
-package com.server.projet.ressources.bdd;
+package com.server.projet.ressources.user;
+
+import com.server.projet.ressources.feedback.Feedback;
 
 import javax.persistence.*;
 import java.io.Serializable;

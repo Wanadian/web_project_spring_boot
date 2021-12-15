@@ -1,4 +1,6 @@
-package com.server.projet.ressources.bdd;
+package com.server.projet.ressources.feedback;
+
+import com.server.projet.ressources.user.User;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +13,7 @@ public class Feedback implements Serializable{
     @ManyToOne
     public User User;
     @ManyToOne
-    public Song Song;
+    public com.server.projet.ressources.song.Song Song;
     public int mark;
     public String comment;
 
@@ -25,19 +27,19 @@ public class Feedback implements Serializable{
         this.id = id;
     }
 
-    public com.server.projet.ressources.bdd.User getUser() {
+    public com.server.projet.ressources.user.User getUser() {
         return User;
     }
 
-    public void setUser(com.server.projet.ressources.bdd.User user) {
+    public void setUser(com.server.projet.ressources.user.User user) {
         User = user;
     }
 
-    public com.server.projet.ressources.bdd.Song getSong() {
+    public com.server.projet.ressources.song.Song getSong() {
         return Song;
     }
 
-    public void setSong(com.server.projet.ressources.bdd.Song song) {
+    public void setSong(com.server.projet.ressources.song.Song song) {
         Song = song;
     }
 

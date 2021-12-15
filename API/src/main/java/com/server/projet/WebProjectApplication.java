@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjetWebApplication {
+public class WebProjectApplication {
 	/*
 	Lancer le serveur BDD avec les lignes de commandes :
 		-cd dans le dossier contenat hsqldb.jar
@@ -15,6 +15,6 @@ public class ProjetWebApplication {
 		-lancer la commande : java -cp hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(ProjetWebApplication.class, args);
+		SpringApplication.run(WebProjectApplication.class, args);
 	}
 }
