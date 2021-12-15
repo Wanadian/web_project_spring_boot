@@ -1,6 +1,5 @@
-package com.server.projet.ressources.artist;
+package com.server.projet.resources.artist;
 
-import com.server.projet.ressources.artist.Artist;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

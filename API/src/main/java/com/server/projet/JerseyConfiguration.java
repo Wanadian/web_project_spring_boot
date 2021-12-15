@@ -1,8 +1,8 @@
 package com.server.projet;
 
-import com.server.projet.ressources.artist.ArtistController;
-import com.server.projet.ressources.song.SongController;
-import com.server.projet.ressources.user.UserController;
+import com.server.projet.resources.artist.ArtistController;
+import com.server.projet.resources.song.SongController;
+import com.server.projet.resources.user.UserController;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletProperties;
 import org.springframework.context.annotation.Configuration;

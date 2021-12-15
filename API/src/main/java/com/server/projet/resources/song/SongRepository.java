@@ -1,6 +1,5 @@
-package com.server.projet.ressources.song;
+package com.server.projet.resources.song;
 
-import com.server.projet.ressources.song.Song;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

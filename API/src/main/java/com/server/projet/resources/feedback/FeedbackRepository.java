@@ -1,6 +1,5 @@
-package com.server.projet.ressources.feedback;
+package com.server.projet.resources.feedback;
 
-import com.server.projet.ressources.feedback.Feedback;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

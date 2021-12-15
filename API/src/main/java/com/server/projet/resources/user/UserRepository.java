@@ -1,6 +1,5 @@
-package com.server.projet.ressources.user;
+package com.server.projet.resources.user;
 
-import com.server.projet.ressources.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

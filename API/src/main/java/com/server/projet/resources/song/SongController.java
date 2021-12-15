@@ -1,9 +1,7 @@
-package com.server.projet.ressources.song;
+package com.server.projet.resources.song;
 
-import com.server.projet.ressources.artist.Artist;
-import com.server.projet.ressources.artist.ArtistRepository;
-import com.server.projet.ressources.song.Song;
-import com.server.projet.ressources.song.SongRepository;
+import com.server.projet.resources.artist.Artist;
+import com.server.projet.resources.artist.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;

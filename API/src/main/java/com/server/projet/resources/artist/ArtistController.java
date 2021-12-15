@@ -1,7 +1,6 @@
-package com.server.projet.ressources.user;
+package com.server.projet.resources.artist;
 
-import com.server.projet.ressources.user.User;
-import com.server.projet.ressources.user.UserRepository;
+import com.server.projet.resources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -11,26 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Path("user")
-public class UserController {
+@Path("artist")
+public class ArtistController {
+    @Autowired
+    private ArtistRepository artistRepository;
     @Autowired
     private UserRepository userRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getAllUser(){
-        List<User> users = new ArrayList<>();
-        userRepository.findAll().forEach(users::add);
-        return users;
+    public List<Artist> getAllArtist() {
+        List<Artist> artists = new ArrayList<>();
+        artistRepository.findAll().forEach(artists::add);
+        return artists;
     }
 
     @GET
-    @Path("{pseudo}")
+    @Path("{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUserByPseudo (@PathParam("pseudo") String pseudo){
-        Optional<User> user = userRepository.findByPseudo(pseudo);
-        if(user.isPresent()){
-            return Response.ok(user.get()).build();
+    public Response getArtistByName(@PathParam("name") String name){
+        Optional<Artist> artist = artistRepository.findByName(name);
+        if(artist.isPresent()){
+            return Response.ok(artist.get()).build();
         }
         else{
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -40,18 +41,18 @@ public class UserController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createSong(User user) {
-        userRepository.save(user);
+    public Response createArtist(Artist artist) {
+        artistRepository.save(artist);
         return Response.status(Response.Status.CREATED).build();
     }
 
     @DELETE
-    @Path("{pseudo}")
+    @Path("{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteUser(@PathParam("pseudo") String pseudo) {
-        if (userRepository.findByPseudo(pseudo).isPresent()) {
+    public Response deleteArtist(@PathParam("name") String name) {
+        if (artistRepository.findByName(name).isPresent()) {
             try {
-                userRepository.deleteByPseudo(pseudo);
+                artistRepository.deleteByName(name);
             } catch (Exception e) {
                 return Response.status(Response.Status.EXPECTATION_FAILED).build();
             }

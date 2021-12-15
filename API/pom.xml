@@ -11,7 +11,7 @@
 	<groupId>com.server</groupId>
 	<artifactId>projet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>projet_web</name>
+	<name>web_project</name>
 	<description>projet web java</description>
 	<properties>
 		<java.version>17</java.version>
