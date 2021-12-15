@@ -1,5 +1,8 @@
 package com.server.projet.resources.feedback;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.server.projet.resources.song.Song;
 import com.server.projet.resources.user.User;
 
 import javax.persistence.*;
@@ -10,10 +13,11 @@ public class Feedback implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     public long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     public User user;
-    @ManyToOne
-    public com.server.projet.resources.song.Song Song;
+    @ManyToOne(fetch = FetchType.LAZY)
+    public Song Song;
     public int mark;
     public String comment;
 
