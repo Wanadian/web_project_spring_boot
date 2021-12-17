@@ -17,7 +17,7 @@ public class ArtistController {
     public Response getAllArtist() {
         List<Artist> artists = artistService.getAllArtists();
         if (!artists.isEmpty()) {
-            return Response.ok(artists).build();
+            return Response.status(Response.Status.OK).entity(artists).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -29,7 +29,7 @@ public class ArtistController {
     public Response getArtistByName(@PathParam("name") String name) {
         Artist artist = artistService.getArtistByName(name);
         if (artist != null) {
-            return Response.ok(artist).build();
+            return Response.status(Response.Status.OK).entity(artist).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -39,8 +39,8 @@ public class ArtistController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createArtist(Artist artist) {
-        artistService.createArtist(artist);
-        return Response.status(Response.Status.CREATED).build();
+        Artist createdArtist = artistService.createArtist(artist);
+        return Response.status(Response.Status.CREATED).entity(createdArtist).build();
     }
 
     @DELETE

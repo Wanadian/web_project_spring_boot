@@ -17,7 +17,7 @@ public class SongController {
     public Response getAllSongs() {
         List<Song> songs = songService.getAllSongs();
         if (!songs.isEmpty()) {
-            return Response.ok(songs).build();
+            return Response.status(Response.Status.OK).entity(songs).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -29,7 +29,7 @@ public class SongController {
     public Response getSongByTitle(@PathParam("title") String title) {
         Song song = songService.getSongByTitle(title);
         if (song != null) {
-            return Response.ok(song).build();
+            return Response.status(Response.Status.OK).entity(song).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -39,8 +39,8 @@ public class SongController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createSong(Song song) {
-        songService.createSong(song);
-        return Response.status(Response.Status.CREATED).build();
+        Song createdSong = songService.createSong(song);
+        return Response.status(Response.Status.CREATED).entity(createdSong).build();
     }
 
     @DELETE

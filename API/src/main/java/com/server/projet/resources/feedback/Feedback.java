@@ -13,15 +13,55 @@ public class Feedback implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonBackReference(value = "user-feedback")
     public User user;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonBackReference(value = "song-feedback")
     public Song Song;
     public int mark;
     public String comment;
 
     public Feedback() {
         super();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public com.server.projet.resources.song.Song getSong() {
+        return Song;
+    }
+
+    public void setSong(com.server.projet.resources.song.Song song) {
+        Song = song;
+    }
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

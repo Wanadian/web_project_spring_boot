@@ -10,8 +10,8 @@ public class WebProjectApplication {
 		-cd dans le dossier contenat hsqldb.jar
 		-lancer la commande : java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:db_dev_web --dbname.0 db_dev_web --port 12345
 
-	Pour lancer l'intzeface graphique de la BDD :
-		-cd dans le dossier contenat hsqldb.jar
+	Pour lancer l'interface graphique de la BDD :
+		-cd dans le dossier contenant hsqldb.jar
 		-lancer la commande : java -cp hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
 	 */
 	public static void main(String[] args) {

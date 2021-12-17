@@ -1,5 +1,6 @@
 package com.server.projet.resources.user;
 
+import com.server.projet.resources.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.core.MediaType;
@@ -18,7 +19,7 @@ public class UserController {
     public Response getAllUsers() {
         List<User> users = userService.getAllUsers();
         if (!users.isEmpty()) {
-            return Response.ok(users).build();
+            return Response.status(Response.Status.OK).entity(users).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -30,7 +31,7 @@ public class UserController {
     public Response getUserByUsername(@PathParam("username") String username) {
         User user = userService.getUserByUsername(username);
         if (user != null) {
-            return Response.ok(user).build();
+            return Response.status(Response.Status.OK).entity(user).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -40,8 +41,13 @@ public class UserController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createUser(User user) {
-        userService.createUser(user);
-        return Response.status(Response.Status.CREATED).build();
+        try {
+            User createdUser = userService.createUser(user);
+            return Response.status(Response.Status.CREATED).entity(createdUser).build();
+        }
+        catch (BadRequestException e){
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
     }
 
     @DELETE

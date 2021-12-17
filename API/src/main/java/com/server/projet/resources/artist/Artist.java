@@ -14,16 +14,32 @@ public class Artist implements Serializable {
     public long id;
     public String name;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference(value = "artist-song")
     public Set<Song> songs;
 
     public Artist(){super();}
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Set<Song> getSongs() {
         return songs;
+    }
+
+    public void setSongs(Set<Song> songs) {
+        this.songs = songs;
     }
 }
