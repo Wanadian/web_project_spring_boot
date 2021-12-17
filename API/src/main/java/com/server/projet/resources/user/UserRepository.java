@@ -7,6 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    Optional<User> findByPseudo(String pseudo);
-    int deleteByPseudo(String pseudo);
+    Optional<User> findByUsername(String username);
+    int deleteByUsername(String username);
 }
