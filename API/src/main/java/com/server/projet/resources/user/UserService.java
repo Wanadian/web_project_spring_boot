@@ -34,11 +34,11 @@ public class UserService {
         if (userRepository.findByUsername(username).isPresent()) {
             try {
                 userRepository.deleteByUsername(username);
-                return Boolean.TRUE;
+                return true;
             } catch (Exception e) {
-                return Boolean.FALSE;
+                return false;
             }
         }
-        return Boolean.FALSE;
+        return false;
     }
 }

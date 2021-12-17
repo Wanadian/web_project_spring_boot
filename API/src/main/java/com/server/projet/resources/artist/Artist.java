@@ -16,4 +16,12 @@ public class Artist implements Serializable {
     public Set<Song> songs;
 
     public Artist(){super();}
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<Song> getSongs() {
+        return songs;
+    }
 }

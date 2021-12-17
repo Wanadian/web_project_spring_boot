@@ -17,7 +17,7 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsers() {
         List<User> users = userService.getAllUsers();
-        if (users != null) {
+        if (!users.isEmpty()) {
             return Response.ok(users).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -57,19 +57,3 @@ public class UserController {
         }
     }
 }
-
-//@Path("/users")
-//public class UserController {
-//    private UserService userService;
-//
-//    @Autowired
-//    public UserController(UserService userService) {
-//        this.userService = userService;
-//    }
-//
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public List<User> getUser() {
-//        return userService.getAll();
-//    }
-//}

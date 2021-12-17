@@ -22,4 +22,8 @@ public class Song implements Serializable {
     public List<Feedback> feedbacks;
 
     public Song(){super();}
+
+    public Artist getSinger() {
+        return singer;
+    }
 }
