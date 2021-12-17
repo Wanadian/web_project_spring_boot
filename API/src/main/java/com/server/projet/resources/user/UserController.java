@@ -1,6 +1,5 @@
 package com.server.projet.resources.user;
 
-import com.server.projet.resources.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.core.MediaType;
@@ -41,12 +40,7 @@ public class UserController {
     @Path("/{username}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteUser(@PathParam("username") String username) {
-        boolean response = userService.deleteUserByUsername(username);
-        if(response){
-            return Response.status(Response.Status.ACCEPTED).build();
-        }
-        else {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
+        User user = userService.deleteUserByUsername(username);
+        return user != null ? Response.status(Response.Status.OK).entity(user).build() : Response.status(Response.Status.BAD_REQUEST).build();
     }
 }

@@ -4,6 +4,8 @@ import com.server.projet.resources.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,15 +39,18 @@ public class UserService {
         return user;
     }
 
-    public Boolean deleteUserByUsername(String username) {
-        if (userRepository.findByUsername(username).isPresent()) {
+    @Transactional
+    public User deleteUserByUsername(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent()) {
             try {
                 userRepository.deleteByUsername(username);
-                return true;
+                return user.get();
             } catch (Exception e) {
-                return false;
+                e.printStackTrace();
+                System.out.println(user.get().getEmail());
             }
         }
-        return false;
+        return null;
     }
 }
