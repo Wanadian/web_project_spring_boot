@@ -1,5 +1,6 @@
 package com.server.projet.resources.song;
 
+import com.server.projet.resources.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -39,8 +40,13 @@ public class SongController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createSong(Song song) {
-        Song createdSong = songService.createSong(song);
-        return Response.status(Response.Status.CREATED).entity(createdSong).build();
+        try {
+            Song createdSong = songService.createSong(song);
+            return Response.status(Response.Status.CREATED).entity(createdSong).build();
+        }
+        catch (BadRequestException e){
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
     }
 
     @DELETE

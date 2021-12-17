@@ -35,7 +35,6 @@ public class UserService {
         }
         userRepository.save(user);
         return user;
-
     }
 
     public Boolean deleteUserByUsername(String username) {

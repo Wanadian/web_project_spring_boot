@@ -1,11 +1,14 @@
 package com.server.projet.resources.artist;
 
+import com.server.projet.resources.BadRequestException;
+import com.server.projet.resources.song.Song;
 import com.server.projet.resources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ArtistService {
@@ -25,10 +28,15 @@ public class ArtistService {
     }
 
     public Artist getArtistByName(String name) {
-        return artistRepository.findByName(name).get();
+        Optional<Artist> artist = artistRepository.findByName(name);
+        return artist.isPresent() ? artist.get() : null;
     }
 
-    public Artist createArtist(Artist artist) {
+    public Artist createArtist(Artist artist) throws BadRequestException{
+        Artist fetchedArtist = getArtistByName(artist.getName());
+        if (fetchedArtist != null) {
+            throw new BadRequestException("Artist already exists");
+        }
         artistRepository.save(artist);
         return artist;
     }
