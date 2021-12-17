@@ -12,15 +12,17 @@ import java.util.List;
 @Entity
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     public String username;
     public int age;
     public String email;
     public String password;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
     public List<Feedback> feedback;
 
-    public User(){super();}
+    public User() {
+        super();
+    }
 }
