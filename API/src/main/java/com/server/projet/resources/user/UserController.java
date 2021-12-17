@@ -37,19 +37,6 @@ public class UserController {
         }
     }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response createUser(User user) {
-        try {
-            User createdUser = userService.createUser(user);
-            return Response.status(Response.Status.CREATED).entity(createdUser).build();
-        }
-        catch (BadRequestException e){
-            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
-        }
-    }
-
     @DELETE
     @Path("/{username}")
     @Produces(MediaType.APPLICATION_JSON)
