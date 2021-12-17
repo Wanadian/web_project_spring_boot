@@ -17,7 +17,7 @@ public class Feedback implements Serializable {
     public User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference(value = "song-feedback")
-    public Song Song;
+    public Song song;
     public int mark;
     public String comment;
 
@@ -41,12 +41,12 @@ public class Feedback implements Serializable {
         this.user = user;
     }
 
-    public com.server.projet.resources.song.Song getSong() {
-        return Song;
+    public Song getSong() {
+        return song;
     }
 
-    public void setSong(com.server.projet.resources.song.Song song) {
-        Song = song;
+    public void setSong(Song song) {
+        this.song = song;
     }
 
     public int getMark() {

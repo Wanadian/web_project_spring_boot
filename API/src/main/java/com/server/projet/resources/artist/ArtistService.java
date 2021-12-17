@@ -6,6 +6,7 @@ import com.server.projet.resources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,15 +42,17 @@ public class ArtistService {
         return artist;
     }
 
-    public Boolean deleteArtistByName(String name) {
-        if (artistRepository.findByName(name).isPresent()) {
+    @Transactional
+    public Artist deleteArtistByName(String name) {
+        Optional<Artist> artist = artistRepository.findByName(name);
+        if (artist.isPresent()) {
             try {
                 artistRepository.deleteByName(name);
-                return true;
+                return artist.get();
             } catch (Exception e) {
-                return false;
+                return null;
             }
         }
-        return false;
+        return null;
     }
 }

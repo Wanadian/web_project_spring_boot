@@ -37,11 +37,12 @@ public class SongController {
     }
 
     @POST
+    @Path("/{artistId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createSong(Song song) {
+    public Response createSong(Song song, @PathParam("artistId") long artistId) {
         try {
-            Song createdSong = songService.createSong(song);
+            Song createdSong = songService.createSong(song, artistId);
             return Response.status(Response.Status.CREATED).entity(createdSong).build();
         }
         catch (BadRequestException e){
@@ -53,11 +54,7 @@ public class SongController {
     @Path("/{title}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteSong(@PathParam("title") String title) {
-        Boolean response = songService.deleteSongByTitle(title);
-        if (response) {
-            return Response.status(Response.Status.ACCEPTED).build();
-        } else {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
+        Song song = songService.deleteSongByTitle(title);
+        return song != null ? Response.status(Response.Status.OK).entity(song).build() : Response.status(Response.Status.BAD_REQUEST).build();
     }
 }

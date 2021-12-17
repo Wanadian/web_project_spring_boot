@@ -10,14 +10,16 @@ import java.util.Set;
 @Entity
 public class Artist implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     public String name;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference(value = "artist-song")
     public Set<Song> songs;
 
-    public Artist(){super();}
+    public Artist() {
+        super();
+    }
 
     public long getId() {
         return id;

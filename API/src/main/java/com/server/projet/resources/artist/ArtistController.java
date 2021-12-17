@@ -1,7 +1,6 @@
 package com.server.projet.resources.artist;
 
 import com.server.projet.resources.BadRequestException;
-import com.server.projet.resources.song.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -43,7 +42,7 @@ public class ArtistController {
     public Response createArtist(Artist artist) {
         try {
             Artist createdArtist = artistService.createArtist(artist);
-            return Response.status(Response.Status.CREATED).entity(createdArtist).build();
+            return Response.status(Response.Status.OK).entity(createdArtist).build();
         }
         catch (BadRequestException e){
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
@@ -54,11 +53,7 @@ public class ArtistController {
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteArtist(@PathParam("name") String name) {
-        Boolean response = artistService.deleteArtistByName(name);
-        if (response) {
-            return Response.status(Response.Status.ACCEPTED).build();
-        } else {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
+        Artist artist = artistService.deleteArtistByName(name);
+        return artist != null ? Response.status(Response.Status.OK).entity(artist).build() : Response.status(Response.Status.BAD_REQUEST).build();
     }
 }

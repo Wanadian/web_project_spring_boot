@@ -47,8 +47,7 @@ public class UserService {
                 userRepository.deleteByUsername(username);
                 return user.get();
             } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println(user.get().getEmail());
+                return null;
             }
         }
         return null;

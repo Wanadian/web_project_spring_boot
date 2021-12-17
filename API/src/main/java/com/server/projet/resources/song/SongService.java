@@ -3,14 +3,13 @@ package com.server.projet.resources.song;
 import com.server.projet.resources.BadRequestException;
 import com.server.projet.resources.artist.Artist;
 import com.server.projet.resources.artist.ArtistRepository;
-import com.server.projet.resources.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class SongService {
@@ -34,28 +33,33 @@ public class SongService {
         return song.isPresent() ? song.get() : null;
     }
 
-    public Song createSong(Song song) throws BadRequestException {
+    public Song createSong(Song song, long artistId) throws BadRequestException {
         Song fetchedSong = getSongByTitle(song.getTitle());
         if (fetchedSong != null) {
             throw new BadRequestException("Song already exists");
         }
-        songRepository.save(song);
-        return song;
+        Optional<Artist> artist = artistRepository.findById(artistId);
+        if(artist.isPresent()) {
+            song.setSinger(artist.get());
+            songRepository.save(song);
+            return song;
+        }
+        else{
+            throw new BadRequestException("Artist does not exist");
+        }
     }
 
-    public boolean deleteSongByTitle(String title) {
-        Song song = songRepository.findByTitle(title).get();
-        if (song != null) {
+    @Transactional
+    public Song deleteSongByTitle(String title) {
+        Optional<Song> song = songRepository.findByTitle(title);
+        if (song.isPresent()) {
             try {
-                Artist artist = artistRepository.findByName(song.getSinger().getName()).get();
-                Set<Song> artistSongs = artist.getSongs();
-                artistSongs.remove(song);
                 songRepository.deleteByTitle(title);
-                return true;
+                return song.get();
             } catch (Exception e) {
-                return false;
+                return null;
             }
         }
-        return false;
+        return null;
     }
 }

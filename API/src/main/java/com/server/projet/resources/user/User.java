@@ -18,7 +18,7 @@ public class User implements Serializable {
     public int age;
     public String email;
     public String password;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference(value = "user-feedback")
     public List<Feedback> feedback;
 
