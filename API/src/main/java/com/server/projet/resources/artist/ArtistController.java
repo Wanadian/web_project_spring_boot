@@ -1,6 +1,6 @@
 package com.server.projet.resources.artist;
 
-import com.server.projet.resources.BadRequestException;
+import com.server.projet.resources.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;

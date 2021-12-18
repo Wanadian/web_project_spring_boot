@@ -1,6 +1,6 @@
 package com.server.projet.resources.artist;
 
-import com.server.projet.resources.BadRequestException;
+import com.server.projet.resources.exception.BadRequestException;
 import com.server.projet.resources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
