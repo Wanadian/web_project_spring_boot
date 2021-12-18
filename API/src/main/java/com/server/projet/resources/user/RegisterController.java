@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/register")
-public class Register {
+public class RegisterController {
     @Autowired
     private UserService userService;
 
