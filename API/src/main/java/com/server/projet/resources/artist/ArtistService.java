@@ -1,7 +1,6 @@
 package com.server.projet.resources.artist;
 
 import com.server.projet.resources.BadRequestException;
-import com.server.projet.resources.song.Song;
 import com.server.projet.resources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,7 @@ public class ArtistService {
         return artist.isPresent() ? artist.get() : null;
     }
 
-    public Artist createArtist(Artist artist) throws BadRequestException{
+    public Artist createArtist(Artist artist) throws BadRequestException {
         Artist fetchedArtist = getArtistByName(artist.getName());
         if (fetchedArtist != null) {
             throw new BadRequestException("Artist already exists");

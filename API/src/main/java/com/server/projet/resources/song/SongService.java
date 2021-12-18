@@ -39,12 +39,11 @@ public class SongService {
             throw new BadRequestException("Song already exists");
         }
         Optional<Artist> artist = artistRepository.findById(artistId);
-        if(artist.isPresent()) {
+        if (artist.isPresent()) {
             song.setSinger(artist.get());
             songRepository.save(song);
             return song;
-        }
-        else{
+        } else {
             throw new BadRequestException("Artist does not exist");
         }
     }

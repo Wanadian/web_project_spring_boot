@@ -17,11 +17,7 @@ public class ArtistController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllArtist() {
         List<Artist> artists = artistService.getAllArtists();
-        if (!artists.isEmpty()) {
-            return Response.status(Response.Status.OK).entity(artists).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        return !artists.isEmpty() ? Response.status(Response.Status.OK).entity(artists).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
@@ -29,11 +25,7 @@ public class ArtistController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getArtistByName(@PathParam("name") String name) {
         Artist artist = artistService.getArtistByName(name);
-        if (artist != null) {
-            return Response.status(Response.Status.OK).entity(artist).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        return artist != null ? Response.status(Response.Status.OK).entity(artist).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @POST
@@ -43,8 +35,7 @@ public class ArtistController {
         try {
             Artist createdArtist = artistService.createArtist(artist);
             return Response.status(Response.Status.OK).entity(createdArtist).build();
-        }
-        catch (BadRequestException e){
+        } catch (BadRequestException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }

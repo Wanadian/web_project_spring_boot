@@ -21,7 +21,7 @@ public class Song implements Serializable {
     public Artist singer;
     public Date date;
     public String type;
-    @OneToMany(mappedBy = "song",cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference(value = "song-feedback")
     public List<Feedback> feedbacks;
 

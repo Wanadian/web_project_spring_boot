@@ -17,11 +17,7 @@ public class SongController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllSongs() {
         List<Song> songs = songService.getAllSongs();
-        if (!songs.isEmpty()) {
-            return Response.status(Response.Status.OK).entity(songs).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        return !songs.isEmpty() ? Response.status(Response.Status.OK).entity(songs).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
@@ -29,11 +25,7 @@ public class SongController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSongByTitle(@PathParam("title") String title) {
         Song song = songService.getSongByTitle(title);
-        if (song != null) {
-            return Response.status(Response.Status.OK).entity(song).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        return song != null ? Response.status(Response.Status.OK).entity(song).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @POST
@@ -44,8 +36,7 @@ public class SongController {
         try {
             Song createdSong = songService.createSong(song, artistId);
             return Response.status(Response.Status.CREATED).entity(createdSong).build();
-        }
-        catch (BadRequestException e){
+        } catch (BadRequestException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }

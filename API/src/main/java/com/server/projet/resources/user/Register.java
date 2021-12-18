@@ -22,8 +22,7 @@ public class Register {
         try {
             User createdUser = userService.createUser(user);
             return Response.status(Response.Status.CREATED).entity(createdUser).build();
-        }
-        catch (BadRequestException e){
+        } catch (BadRequestException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
