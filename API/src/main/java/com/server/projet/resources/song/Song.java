@@ -23,7 +23,7 @@ public class Song implements Serializable {
     public String type;
     @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference(value = "song-feedback")
-    public List<Feedback> feedbacks;
+    public List<Feedback> feedback;
 
     public Song() {
         super();
@@ -69,11 +69,11 @@ public class Song implements Serializable {
         this.type = type;
     }
 
-    public List<Feedback> getFeedbacks() {
-        return feedbacks;
+    public List<Feedback> getFeedback() {
+        return feedback;
     }
 
-    public void setFeedbacks(List<Feedback> feedbacks) {
-        this.feedbacks = feedbacks;
+    public void setFeedback(List<Feedback> feedback) {
+        this.feedback = feedback;
     }
 }

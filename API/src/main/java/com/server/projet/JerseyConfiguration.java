@@ -1,6 +1,7 @@
 package com.server.projet;
 
 import com.server.projet.resources.artist.ArtistController;
+import com.server.projet.resources.feedback.FeedbackController;
 import com.server.projet.resources.song.SongController;
 import com.server.projet.resources.user.Register;
 import com.server.projet.resources.user.UserController;
@@ -22,5 +23,6 @@ public class JerseyConfiguration extends ResourceConfig {
         register(UserController.class);
         register(ArtistController.class);
         register(SongController.class);
+        register(FeedbackController.class);
     }
 }
