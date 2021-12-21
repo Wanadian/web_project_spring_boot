@@ -24,6 +24,7 @@ public class Song implements Serializable {
     @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference(value = "song-feedback")
     public List<Feedback> feedback;
+    public String url;
 
     public Song() {
         super();
@@ -75,5 +76,13 @@ public class Song implements Serializable {
 
     public void setFeedback(List<Feedback> feedback) {
         this.feedback = feedback;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
