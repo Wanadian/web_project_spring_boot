@@ -28,19 +28,19 @@ public class SongService {
         return songs;
     }
 
-    public Song getSongByTitle(String title) {
-        Optional<Song> song = songRepository.findByTitle(title);
+    public Song getSongById(long songId) {
+        Optional<Song> song = songRepository.findById(songId);
         return song.isPresent() ? song.get() : null;
     }
 
-    public List<Song> getAllSongsByArtistId(long artistId){
+    public List<Song> getAllSongsByArtistId(long artistId) {
         List<Song> songs = new ArrayList<>();
         songs.addAll(songRepository.findAllBySingerId(artistId));
         return songs;
     }
 
     public Song createSong(Song song, long artistId) throws BadRequestException {
-        Song fetchedSong = getSongByTitle(song.getTitle());
+        Song fetchedSong = getSongById(song.getId());
         if (fetchedSong != null) {
             throw new BadRequestException("Song already exists");
         }
@@ -55,11 +55,11 @@ public class SongService {
     }
 
     @Transactional
-    public Song deleteSongByTitle(String title) {
-        Optional<Song> song = songRepository.findByTitle(title);
+    public Song deleteSongById(long songId) {
+        Optional<Song> song = songRepository.findById(songId);
         if (song.isPresent()) {
             try {
-                songRepository.deleteByTitle(title);
+                songRepository.deleteById(songId);
                 return song.get();
             } catch (Exception e) {
                 return null;

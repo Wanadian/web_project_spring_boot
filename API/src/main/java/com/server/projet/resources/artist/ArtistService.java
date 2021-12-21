@@ -24,13 +24,13 @@ public class ArtistService {
         return artists;
     }
 
-    public Artist getArtistByName(String name) {
-        Optional<Artist> artist = artistRepository.findByName(name);
+    public Artist getArtistById(long artistId) {
+        Optional<Artist> artist = artistRepository.findById(artistId);
         return artist.isPresent() ? artist.get() : null;
     }
 
     public Artist createArtist(Artist artist) throws BadRequestException {
-        Artist fetchedArtist = getArtistByName(artist.getName());
+        Artist fetchedArtist = getArtistById(artist.getId());
         if (fetchedArtist != null) {
             throw new BadRequestException("Artist already exists");
         }
@@ -39,11 +39,11 @@ public class ArtistService {
     }
 
     @Transactional
-    public Artist deleteArtistByName(String name) {
-        Optional<Artist> artist = artistRepository.findByName(name);
+    public Artist deleteArtistById(long artistId) {
+        Optional<Artist> artist = artistRepository.findById(artistId);
         if (artist.isPresent()) {
             try {
-                artistRepository.deleteByName(name);
+                artistRepository.deleteById(artistId);
                 return artist.get();
             } catch (Exception e) {
                 return null;

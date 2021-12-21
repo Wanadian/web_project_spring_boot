@@ -7,7 +7,7 @@ import java.util.Optional;
 
 @Repository
 public interface ArtistRepository extends CrudRepository<Artist, Long> {
-    Optional<Artist> findByName(String name);
+    Optional<Artist> findById(long id);
 
-    int deleteByName(String name);
+    int deleteById(long id);
 }

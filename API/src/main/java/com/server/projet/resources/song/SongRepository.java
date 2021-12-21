@@ -8,11 +8,9 @@ import java.util.Optional;
 
 @Repository
 public interface SongRepository extends CrudRepository<Song, Long> {
-    Optional<Song> findByTitle(String title);
-
     Optional<Song> findById(long id);
 
     List<Song> findAllBySingerId(long id);
 
-    int deleteByTitle(String title);
+    int deleteById(long id);
 }

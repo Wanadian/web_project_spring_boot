@@ -29,8 +29,8 @@ public class FeedbackService {
         return null;
     }
 
-    public List<Feedback> getAllFeedbackBySong(String songTitle) {
-        Optional<Song> song = songRepository.findByTitle(songTitle);
+    public List<Feedback> getAllFeedbackBySong(long songId) {
+        Optional<Song> song = songRepository.findById(songId);
         return song.isPresent() ? song.get().getFeedback() : null;
     }
 }

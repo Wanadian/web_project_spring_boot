@@ -13,10 +13,10 @@ public class FeedbackController {
     private FeedbackService feedbackService;
 
     @GET
-    @Path("/{songTitle}")
+    @Path("/{songId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getFeedbackOfSong(@PathParam("songTitle") String songTitle) {
-        List<Feedback> feedback = feedbackService.getAllFeedbackBySong(songTitle);
+    public Response getFeedbackOfSong(@PathParam("songId") long songId) {
+        List<Feedback> feedback = feedbackService.getAllFeedbackBySong(songId);
         return !feedback.isEmpty() ? Response.status(Response.Status.OK).entity(feedback).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 

@@ -25,17 +25,17 @@ public class ArtistController {
     }
 
     @GET
-    @Path("/{name}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getArtistByName(@PathParam("name") String name) {
-        Artist artist = artistService.getArtistByName(name);
+    public Response getArtistById(@PathParam("id") long id) {
+        Artist artist = artistService.getArtistById(id);
         return artist != null ? Response.status(Response.Status.OK).entity(artist).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
     @Path("/{id}/songs")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllSongsOfArtist(@PathParam("id") long id){
+    public Response getAllSongsOfArtist(@PathParam("id") long id) {
         List<Song> songs = songService.getAllSongsByArtistId(id);
         return !songs.isEmpty() ? Response.status(Response.Status.OK).entity(songs).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
@@ -53,10 +53,10 @@ public class ArtistController {
     }
 
     @DELETE
-    @Path("/{name}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteArtist(@PathParam("name") String name) {
-        Artist artist = artistService.deleteArtistByName(name);
+    public Response deleteArtist(@PathParam("id") long id) {
+        Artist artist = artistService.deleteArtistById(id);
         return artist != null ? Response.status(Response.Status.OK).entity(artist).build() : Response.status(Response.Status.BAD_REQUEST).build();
     }
 }

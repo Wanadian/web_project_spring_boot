@@ -21,10 +21,10 @@ public class SongController {
     }
 
     @GET
-    @Path("/{title}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getSongByTitle(@PathParam("title") String title) {
-        Song song = songService.getSongByTitle(title);
+    public Response getSongById(@PathParam("id") long id) {
+        Song song = songService.getSongById(id);
         return song != null ? Response.status(Response.Status.OK).entity(song).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
@@ -42,10 +42,10 @@ public class SongController {
     }
 
     @DELETE
-    @Path("/{title}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteSong(@PathParam("title") String title) {
-        Song song = songService.deleteSongByTitle(title);
+    public Response deleteSong(@PathParam("id") long id) {
+        Song song = songService.deleteSongById(id);
         return song != null ? Response.status(Response.Status.OK).entity(song).build() : Response.status(Response.Status.BAD_REQUEST).build();
     }
 }
