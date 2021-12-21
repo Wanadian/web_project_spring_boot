@@ -40,8 +40,8 @@ public class SongService {
     }
 
     public Song createSong(Song song, long artistId) throws BadRequestException {
-        Song fetchedSong = getSongById(song.getId());
-        if (fetchedSong != null) {
+        Optional<Song> fetchedSong = songRepository.findByTitle(song.getTitle());
+        if (fetchedSong .isPresent()) {
             throw new BadRequestException("Song already exists");
         }
         Optional<Artist> artist = artistRepository.findById(artistId);

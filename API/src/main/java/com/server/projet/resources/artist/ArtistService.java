@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.awt.desktop.QuitResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,8 +31,8 @@ public class ArtistService {
     }
 
     public Artist createArtist(Artist artist) throws BadRequestException {
-        Artist fetchedArtist = getArtistById(artist.getId());
-        if (fetchedArtist != null) {
+        Optional<Artist> fetchedArtist = artistRepository.findByName(artist.getName());
+        if (fetchedArtist.isPresent()) {
             throw new BadRequestException("Artist already exists");
         }
         artistRepository.save(artist);
@@ -46,6 +47,8 @@ public class ArtistService {
                 artistRepository.deleteById(artistId);
                 return artist.get();
             } catch (Exception e) {
+                System.out.println("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                System.out.println(e);
                 return null;
             }
         }
