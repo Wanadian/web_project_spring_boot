@@ -33,6 +33,12 @@ public class SongService {
         return song.isPresent() ? song.get() : null;
     }
 
+    public List<Song> getAllSongsByArtistId(long artistId){
+        List<Song> songs = new ArrayList<>();
+        songs.addAll(songRepository.findAllBySingerId(artistId));
+        return songs;
+    }
+
     public Song createSong(Song song, long artistId) throws BadRequestException {
         Song fetchedSong = getSongByTitle(song.getTitle());
         if (fetchedSong != null) {

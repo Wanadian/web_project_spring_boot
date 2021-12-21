@@ -1,6 +1,8 @@
 package com.server.projet.resources.artist;
 
 import com.server.projet.resources.exception.BadRequestException;
+import com.server.projet.resources.song.Song;
+import com.server.projet.resources.song.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -12,10 +14,12 @@ import java.util.List;
 public class ArtistController {
     @Autowired
     private ArtistService artistService;
+    @Autowired
+    private SongService songService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllArtist() {
+    public Response getAllArtists() {
         List<Artist> artists = artistService.getAllArtists();
         return !artists.isEmpty() ? Response.status(Response.Status.OK).entity(artists).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
@@ -26,6 +30,14 @@ public class ArtistController {
     public Response getArtistByName(@PathParam("name") String name) {
         Artist artist = artistService.getArtistByName(name);
         return artist != null ? Response.status(Response.Status.OK).entity(artist).build() : Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @GET
+    @Path("/{id}/songs")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllSongsOfArtist(@PathParam("id") long id){
+        List<Song> songs = songService.getAllSongsByArtistId(id);
+        return !songs.isEmpty() ? Response.status(Response.Status.OK).entity(songs).build() : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @POST
