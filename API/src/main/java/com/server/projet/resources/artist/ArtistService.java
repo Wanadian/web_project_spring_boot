@@ -1,7 +1,6 @@
 package com.server.projet.resources.artist;
 
 import com.server.projet.resources.exception.BadRequestException;
-import com.server.projet.resources.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +12,10 @@ import java.util.Optional;
 @Service
 public class ArtistService {
     private ArtistRepository artistRepository;
-    private UserRepository userRepository;
 
     @Autowired
-    public ArtistService(ArtistRepository artistRepository, UserRepository userRepository) {
+    public ArtistService(ArtistRepository artistRepository) {
         this.artistRepository = artistRepository;
-        this.userRepository = userRepository;
     }
 
     public List<Artist> getAllArtists() {
