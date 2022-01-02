@@ -1,23 +1,22 @@
 import Song from "./Song";
 import './SongList.css'
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function SongList() {
-    const songs = [
-        {
-            "id": 51,
-            "title": "7 rings",
-            "date": "2019-04-23T18:25:43.511+00:00",
-            "type": "pop",
-            "url": "https://www.youtube.com/watch?v=QYh6mYIJG2Y"
-        },
-        {
-            "id": 52,
-            "title": "Enemy",
-            "date": "2019-04-23T18:25:43.511+00:00",
-            "type": "pop",
-            "url": "https://www.youtube.com/watch?v=F5tSoaJ93ac"
+    const [songs, setSongs] = useState([]);
+
+    useEffect(() => {
+        async function fetchSongs() {
+            const result = await axios.get(`http://localhost:8080/songs`);
+            if (result.data) {
+                setSongs(result.data)
+            }
         }
-    ]
+
+        fetchSongs();
+    }, []);
+
     return (
         <div className={"SongList"}>
             {songs.map((song) =>

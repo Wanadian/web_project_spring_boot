@@ -1,9 +1,10 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Welcome from "./components/Welcome";
-import SongList from "./components/song/song/SongList";
-import SongDetails from "./components/song/song/SongDetails";
-import ArtistList from "./components/song/artist/ArtistList";
+import SongList from "./components/song/SongList";
+import SongDetails from "./components/song/SongDetails";
+import ArtistList from "./components/artist/ArtistList";
+import AddSong from "./components/song/AddSong";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Routes>
                     <Route exact path={''} element={<Welcome/>}/>
                     <Route exact path={'/songs'} element={<SongList/>}/>
+                    <Route exact path={'/songs/add'} element={<AddSong/>}/>
                     <Route exact path={'/songs/:songId'} element={<SongDetails/>}/>
                     <Route exact path={'/artists'} element={<ArtistList/>}/>
                 </Routes>

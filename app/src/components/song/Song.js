@@ -1,13 +1,20 @@
 import './Song.css';
 import ReactPlayer from 'react-player/youtube';
+import {useNavigate} from "react-router-dom";
 
-function Song({song}){
-    return(
+function Song({song}) {
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate(`/songs/${song.id}`);
+    }
+
+    return (
         <div className={'Song'}>
             <div>
                 <ReactPlayer url={song.url} controls={true} light={true} volume={0.2} width={'30vw'}/>
             </div>
-            <div className={'Title'}>
+            <div className={'Title Link'} onClick={handleClick}>
                 {song.title}
             </div>
         </div>

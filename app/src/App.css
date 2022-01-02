@@ -1,4 +1,4 @@
-.App  {
+.App {
     background-color: black;
     height: 100vh;
     overflow-y: scroll;
@@ -10,8 +10,12 @@
     display: none;
 }
 
-.Title{
+.Title {
     color: #EAE9EC;
     font-size: 20px;
     font-family: 'Vujahday Script', cursive;
+}
+
+.Link {
+    cursor: pointer;
 }
