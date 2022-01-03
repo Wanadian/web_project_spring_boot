@@ -38,29 +38,20 @@ function AddSong() {
             const result = await axios.post(`http://localhost:8080/songs/${song.artistId}`, song);
             navigate(`/songs/${result.data.id}`);
         } catch (error) {
-            console.log('Error')
+            console.log('Error');
         }
     }
 
     return (
         <div>
-            <Input property={'title'} type={'text'} value={song.title} placeholder={'Title'}
-                   handleChangeValue={handleChangeValue}/>
-            <Input property={'type'} type={'text'} value={song.type} placeholder={'Type'}
-                   handleChangeValue={handleChangeValue}/>
-            <Input property={'url'} type={'text'} value={song.url} placeholder={'URL'}
-                   handleChangeValue={handleChangeValue}/>
+            <Input property={'title'} type={'text'} value={song.title} placeholder={'Title'} handleChangeValue={handleChangeValue}/>
+            <Input property={'type'} type={'text'} value={song.type} placeholder={'Type'} handleChangeValue={handleChangeValue}/>
+            <Input property={'url'} type={'text'} value={song.url} placeholder={'URL'} handleChangeValue={handleChangeValue}/>
             <Input property={'date'} type={'date'} value={song.date} handleChangeValue={handleChangeValue}/>
             <select value={song.artistId} onChange={handleSelectChange}>
-                {artists.map((artist) =>
-                    <option key={artist.id} value={artist.id}>
-                        {artist.name}
-                    </option>
-                )}
+                {artists.map((artist) => <option key={artist.id} value={artist.id}>{artist.name}</option>)}
             </select>
-            <button onClick={handleSubmit}>
-                Save
-            </button>
+            <button className={'Link'} onClick={handleSubmit}>Save</button>
         </div>
     )
 }

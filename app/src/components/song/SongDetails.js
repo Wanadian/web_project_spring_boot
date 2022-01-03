@@ -1,5 +1,5 @@
 import './SongDetails.css'
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Moment from 'react-moment';
@@ -8,6 +8,7 @@ import ReactPlayer from 'react-player/youtube';
 function SongDetails() {
     const [song, setSong] = useState(null);
     const {songId} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchSong() {
@@ -19,6 +20,16 @@ function SongDetails() {
 
         fetchSong();
     }, [songId]);
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        try {
+            const result = await axios.delete(`http://localhost:8080/songs/${songId}`);
+            navigate(`/songs`);
+        } catch (error) {
+            console.log('Error');
+        }
+    }
 
     return (
         <div className={'SongDetails'}>
@@ -39,6 +50,7 @@ function SongDetails() {
                     <div>
                         Date: <Moment locale={'en'} date={song.date} format={'LL'}/>
                     </div>
+                    <button className={'Link'} onClick={handleSubmit}>Delete song</button>
                 </div>
                 : null}
         </div>
