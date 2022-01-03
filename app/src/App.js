@@ -5,6 +5,7 @@ import SongList from "./components/song/SongList";
 import SongDetails from "./components/song/SongDetails";
 import ArtistList from "./components/artist/ArtistList";
 import AddSong from "./components/song/AddSong";
+import AddArtist from "./components/artist/AddArtist";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route exact path={'/songs/add'} element={<AddSong/>}/>
                     <Route exact path={'/songs/:songId'} element={<SongDetails/>}/>
                     <Route exact path={'/artists'} element={<ArtistList/>}/>
+                    <Route exact path={'/artists/add'} element={<AddArtist/>}/>
                 </Routes>
             </Router>
         </div>

@@ -21,7 +21,7 @@ function SongDetails() {
         fetchSong();
     }, [songId]);
 
-    async function handleSubmit(event) {
+    async function handleDeleteButtonClick(event) {
         event.preventDefault();
         try {
             const result = await axios.delete(`http://localhost:8080/songs/${songId}`);
@@ -50,7 +50,7 @@ function SongDetails() {
                     <div>
                         Date: <Moment locale={'en'} date={song.date} format={'LL'}/>
                     </div>
-                    <button className={'Link'} onClick={handleSubmit}>Delete song</button>
+                    <button className={'Link'} onClick={handleDeleteButtonClick}>Delete song</button>
                 </div>
                 : null}
         </div>

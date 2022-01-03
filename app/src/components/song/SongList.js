@@ -19,13 +19,9 @@ function SongList() {
         fetchSongs();
     }, []);
 
-    async function handleSubmit(event) {
+    function handleClick(event) {
         event.preventDefault();
-        try {
-            navigate(`/songs/add`);
-        } catch (error) {
-            console.log('Error');
-        }
+        navigate(`/songs/add`);
     }
 
     return (
@@ -35,7 +31,7 @@ function SongList() {
                     <Song key={song.id} song={song}/>
                 )}
             </div>
-            <button className={'Link'} onClick={handleSubmit}>Add song</button>
+            <button className={'Link'} onClick={handleClick}>Add song</button>
         </div>
     )
 }
