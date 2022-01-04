@@ -1,5 +1,6 @@
 package com.server.projet.resources.feedback;
 
+import com.server.projet.resources.exception.BadRequestException;
 import com.server.projet.resources.song.Song;
 import com.server.projet.resources.song.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,17 @@ public class FeedbackService {
         this.songRepository = songRepository;
     }
 
-    public Feedback createFeedbackToSong(long songId, Feedback feedback) {
+    public Feedback createFeedbackToSong(long songId, Feedback feedback) throws BadRequestException{
         Optional<Song> song = songRepository.findById(songId);
         if (song.isPresent()) {
-            feedback.setSong(song.get());
-            feedbackRepository.save(feedback);
-            return feedback;
+            if (feedback.getMark() <= 5 && feedback.getMark() >= 0) {
+                feedback.setSong(song.get());
+                feedbackRepository.save(feedback);
+                return feedback;
+            }
+            else {
+                throw new BadRequestException("Mark must be between 0 and 5 included");
+            }
         }
         return null;
     }

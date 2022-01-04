@@ -1,5 +1,6 @@
 package com.server.projet.resources.feedback;
 
+import com.server.projet.resources.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -25,7 +26,11 @@ public class FeedbackController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response commentSong(Feedback feedback, @PathParam("songId") long songId) {
-        Feedback createdFeedback = feedbackService.createFeedbackToSong(songId, feedback);
-        return createdFeedback != null ? Response.status(Response.Status.OK).entity(createdFeedback).build() : Response.status(Response.Status.BAD_REQUEST).build();
+        try {
+            Feedback createdFeedback = feedbackService.createFeedbackToSong(songId, feedback);
+            return createdFeedback != null ? Response.status(Response.Status.OK).entity(createdFeedback).build() : Response.status(Response.Status.BAD_REQUEST).build();
+        } catch (BadRequestException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
     }
 }
