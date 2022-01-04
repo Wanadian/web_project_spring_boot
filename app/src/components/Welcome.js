@@ -1,4 +1,4 @@
-import './Welcome.scss'
+import './Welcome.css'
 import {useNavigate} from "react-router-dom";
 
 function Welcome() {
@@ -15,7 +15,7 @@ function Welcome() {
   }
 
   return (
-    <>
+    <div className={'WelcomeBackground'}>
       <div className={'Welcome'}>
         Echo
       </div>
@@ -24,7 +24,7 @@ function Welcome() {
         <span className={'Link'} onClick={handleSongClick}>Songs</span>
         <span className={'Link'} onClick={handleArtistClick}>Artists</span>
       </div>
-    </>
+    </div>
   );
 }
 
