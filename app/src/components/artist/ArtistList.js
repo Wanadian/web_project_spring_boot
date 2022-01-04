@@ -5,43 +5,47 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 function ArtistList() {
-    const [artists, setArtists] = useState([]);
-    const navigate = useNavigate();
+  const [artists, setArtists] = useState([]);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchArtists() {
-            const result = await axios.get(`http://localhost:8080/artists`);
-            if (result.data) {
-                setArtists(result.data)
-            }
-        }
-
-        fetchArtists();
-    }, []);
-
-    async function handleClick(event) {
-        event.preventDefault();
-        navigate(`/artists/add`);
+  useEffect(() => {
+    async function fetchArtists() {
+      const result = await axios.get(`http://localhost:8080/artists`);
+      if (result.data) {
+        setArtists(result.data)
+      }
     }
 
-    function deleteArtist(index){
-        const newArtists = [...artists];
-        newArtists.splice(index,1);
-        setArtists(newArtists);
-    }
+    fetchArtists();
+  }, []);
 
-    return (
-        <div>
-            <div className={"ArtistList"}>
-                {artists.map((artist,index) =>
-                    <Artist key={artist.id} index={index} artist={artist} deleteArtist={deleteArtist}/>
-                )}
-            </div>
-            <div>
-                <button className={'Link'} onClick={handleClick}>Add artist</button>
-            </div>
-        </div>
-    )
+  async function handleClick(event) {
+    event.preventDefault();
+    navigate(`/artists/add`);
+  }
+
+  function handleHomeClick(event) {
+    event.preventDefault();
+    navigate(`/`);
+  }
+
+  function deleteArtist(index) {
+    const newArtists = [...artists];
+    newArtists.splice(index, 1);
+    setArtists(newArtists);
+  }
+
+  return (
+    <div>
+      <div className={"ArtistList"}>
+        {artists.map((artist, index) =>
+          <Artist key={artist.id} index={index} artist={artist} deleteArtist={deleteArtist}/>
+        )}
+      </div>
+      <button className={'Link'} onClick={handleClick}>Add artist</button>
+      <button className={'Link'} onClick={handleHomeClick}>Home</button>
+    </div>
+  )
 }
 
 export default ArtistList;

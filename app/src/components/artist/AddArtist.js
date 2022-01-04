@@ -12,6 +12,16 @@ function AddArtist() {
         setArtist(newArtist);
     }
 
+    function handleHomeClick(event) {
+        event.preventDefault();
+        navigate(`/`);
+    }
+
+    function handleBackClick(event) {
+        event.preventDefault();
+        navigate(`/artists`);
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
         try {
@@ -26,6 +36,8 @@ function AddArtist() {
         <div>
             <Input property={'name'} type={'text'} value={artist.name} placeholder={'Name'} handleChangeValue={handleChangeValue}/>
             <button className={'Link'} onClick={handleSubmit}>Save</button>
+            <button className={'Link'} onClick={handleHomeClick}>Home</button>
+            <button className={'Link'} onClick={handleBackClick}>Back</button>
         </div>
     )
 }

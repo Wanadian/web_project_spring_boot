@@ -40,6 +40,16 @@ function SongDetails() {
     }
   }
 
+  function handleHomeClick(event) {
+    event.preventDefault();
+    navigate(`/`);
+  }
+
+  function handleBackClick(event) {
+    event.preventDefault();
+    navigate(`/songs`);
+  }
+
   function toggleFeedbackForm(event) {
     event.preventDefault();
     setFeedback({mark: 5, comment: ''});
@@ -63,7 +73,7 @@ function SongDetails() {
   return (
     <div className={'SongDetails'}>
       {song ?
-        <div>
+        <>
           <div>
             <ReactPlayer url={song.url} controls={true} light={true} volume={0.2} width={'40vw'} height={'50vh'}/>
           </div>
@@ -90,12 +100,14 @@ function SongDetails() {
               <button className={'Link'} onClick={toggleFeedbackForm}>Return</button>
             </>
           }
+          <button className={'Link'} onClick={handleHomeClick}>Home</button>
+          <button className={'Link'} onClick={handleBackClick}>Back</button>
           <div>
             {song.feedback.map((feedback) =>
               <Feedback key={feedback.id} feedback={feedback}/>
             )}
           </div>
-        </div>
+        </>
         : null}
     </div>
   );

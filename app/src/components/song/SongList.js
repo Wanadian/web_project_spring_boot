@@ -24,6 +24,11 @@ function SongList() {
         navigate(`/songs/add`);
     }
 
+    function handleHomeClick(event) {
+        event.preventDefault();
+        navigate(`/`);
+    }
+
     return (
         <div>
             <div className={"SongList"}>
@@ -32,6 +37,7 @@ function SongList() {
                 )}
             </div>
             <button className={'Link'} onClick={handleClick}>Add song</button>
+            <button className={'Link'} onClick={handleHomeClick}>Home</button>
         </div>
     )
 }

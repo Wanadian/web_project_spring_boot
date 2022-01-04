@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+
 .App {
-    background-color: black;
     height: 100vh;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -13,7 +14,7 @@
 .Title {
     color: #EAE9EC;
     font-size: 20px;
-    font-family: 'Vujahday Script', cursive;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .Link {

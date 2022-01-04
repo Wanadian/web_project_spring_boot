@@ -32,6 +32,16 @@ function AddSong() {
         setSong(newSong);
     }
 
+    function handleHomeClick(event) {
+        event.preventDefault();
+        navigate(`/`);
+    }
+
+    function handleBackClick(event) {
+        event.preventDefault();
+        navigate(`/songs`);
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
         try {
@@ -52,6 +62,8 @@ function AddSong() {
                 {artists.map((artist) => <option key={artist.id} value={artist.id}>{artist.name}</option>)}
             </select>
             <button className={'Link'} onClick={handleSubmit}>Save</button>
+            <button className={'Link'} onClick={handleHomeClick}>Home</button>
+            <button className={'Link'} onClick={handleBackClick}>Back</button>
         </div>
     )
 }

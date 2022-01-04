@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(-45deg, #000000, #2738a6, #460c75, #801313);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.Welcome {
+  height: 90vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  color: #EAE9EC;
+  font-family: 'Grandstander', cursive;
+  font-size: 150px;
+}
+
+.Footer {
+  color: #EAE9EC;
+  position: absolute;
+  bottom: 2em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 93vw;
+  font-family: 'Titillium Web', sans-serif;
+}
