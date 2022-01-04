@@ -97,11 +97,13 @@ function SongDetails() {
               <Input property={'mark'} type={'number'} value={feedback.mark} placeholder={''} min={0} max={5} handleChangeValue={handleChangeValue}/>
               <Input property={'comment'} type={'textarea'} value={feedback.comment} placeholder={'comment'} handleChangeValue={handleChangeValue}/>
               <button className={'Link'} onClick={handleFeedbackButtonClick}>Submit</button>
-              <button className={'Link'} onClick={toggleFeedbackForm}>Return</button>
+              <button className={'Link'} onClick={toggleFeedbackForm}>Cancel</button>
             </>
           }
-          <button className={'Link'} onClick={handleHomeClick}>Home</button>
-          <button className={'Link'} onClick={handleBackClick}>Back</button>
+          <div className={'Overlay'}>
+            <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
+            <button className={'Link Button'} onClick={handleBackClick}>Back</button>
+          </div>
           <div>
             {song.feedback.map((feedback) =>
               <Feedback key={feedback.id} feedback={feedback}/>

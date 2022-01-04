@@ -43,7 +43,9 @@ function ArtistList() {
         )}
       </div>
       <button className={'Link'} onClick={handleClick}>Add artist</button>
-      <button className={'Link'} onClick={handleHomeClick}>Home</button>
+      <div className={'Overlay'}>
+        <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
+      </div>
     </div>
   )
 }

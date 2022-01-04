@@ -62,8 +62,10 @@ function AddSong() {
                 {artists.map((artist) => <option key={artist.id} value={artist.id}>{artist.name}</option>)}
             </select>
             <button className={'Link'} onClick={handleSubmit}>Save</button>
-            <button className={'Link'} onClick={handleHomeClick}>Home</button>
-            <button className={'Link'} onClick={handleBackClick}>Back</button>
+            <div className={'Overlay'}>
+                <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
+                <button className={'Link Button'} onClick={handleBackClick}>Back</button>
+            </div>
         </div>
     )
 }

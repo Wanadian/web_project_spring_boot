@@ -5,9 +5,10 @@ html, body {
     height: 100%;
 }
 
-body{
+body {
     background-color: black;
 }
+
 .App {
     height: 100vh;
     overflow-y: scroll;
@@ -27,4 +28,21 @@ body{
 
 .Link {
     cursor: pointer;
+}
+
+.Overlay {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Button{
+    color: white;
+    background-color: rgba(63, 61, 57, 0.29);
+    border: #ff8510 solid 1px;
+    margin: 5px;
+    padding: 7px 15px;
+    border-radius: 7px;
 }
