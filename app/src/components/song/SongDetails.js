@@ -31,16 +31,6 @@ function SongDetails() {
     setFeedback(newFeedback);
   }
 
-  async function handleDeleteButtonClick(event) {
-    event.preventDefault();
-    try {
-      await axios.delete(`http://localhost:8080/songs/${songId}`);
-      navigate(`/songs`);
-    } catch (error) {
-      console.log('Error');
-    }
-  }
-
   function handleHomeClick(event) {
     event.preventDefault();
     navigate(`/`);
@@ -51,13 +41,17 @@ function SongDetails() {
     navigate(`/songs`);
   }
 
-  function toggleFeedbackForm(event) {
+  async function handleDeleteClick(event) {
     event.preventDefault();
-    setFeedback({mark: 5, comment: ''});
-    setShowForm(!showForm);
+    try {
+      await axios.delete(`http://localhost:8080/songs/${songId}`);
+      navigate(`/songs`);
+    } catch (error) {
+      console.log('Error');
+    }
   }
 
-  async function handleFeedbackButtonClick(event) {
+  async function handleFeedbackClick(event) {
     event.preventDefault();
     try {
       const result = await axios.post(`http://localhost:8080/comments/${songId}`, feedback);
@@ -71,36 +65,43 @@ function SongDetails() {
     }
   }
 
+  function toggleFeedbackForm(event) {
+    event.preventDefault();
+    setFeedback({mark: 5, comment: ''});
+    setShowForm(!showForm);
+  }
+
   return (
-    <div className={'SongDetails'}>
+    <>
       {song ?
         <>
-          <div>
+          <div className={'SongDetails'}>
             <ReactPlayer url={song.url} controls={true} light={true} volume={0.2} width={'40vw'} height={'50vh'}/>
+            <div className={'Title'}>
+              {song.title}
+            </div>
+            <div>
+              Artist: {"AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"}
+            </div>
+            <div>
+              Type: {song.type}
+            </div>
+            <div>
+              Date: <Moment locale={'en'} date={song.date} format={'LL'}/>
+            </div>
+            <button className={'Link'} onClick={handleDeleteClick}>Delete song</button>
+            {!showForm ?
+              <button className={'Link'} onClick={toggleFeedbackForm}>Comment</button>
+              :
+              <>
+                <Input property={'mark'} type={'number'} value={feedback.mark} placeholder={''} min={0} max={5}
+                       handleChangeValue={handleChangeValue}/>
+                <Input property={'comment'} type={'textarea'} value={feedback.comment} placeholder={'comment'} handleChangeValue={handleChangeValue}/>
+                <button className={'Link'} onClick={handleFeedbackClick}>Submit</button>
+                <button className={'Link'} onClick={toggleFeedbackForm}>Cancel</button>
+              </>
+            }
           </div>
-          <div className={'Title'}>
-            {song.title}
-          </div>
-          <div>
-            Artist: {"AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"}
-          </div>
-          <div>
-            Type: {song.type}
-          </div>
-          <div>
-            Date: <Moment locale={'en'} date={song.date} format={'LL'}/>
-          </div>
-          <button className={'Link'} onClick={handleDeleteButtonClick}>Delete song</button>
-          {!showForm ?
-            <button className={'Link'} onClick={toggleFeedbackForm}>Comment</button>
-            :
-            <>
-              <Input property={'mark'} type={'number'} value={feedback.mark} placeholder={''} min={0} max={5} handleChangeValue={handleChangeValue}/>
-              <Input property={'comment'} type={'textarea'} value={feedback.comment} placeholder={'comment'} handleChangeValue={handleChangeValue}/>
-              <button className={'Link'} onClick={handleFeedbackButtonClick}>Submit</button>
-              <button className={'Link'} onClick={toggleFeedbackForm}>Cancel</button>
-            </>
-          }
           <div className={'RightOverlay'}>
             <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
             <button className={'Link Button'} onClick={handleBackClick}>Back</button>
@@ -112,7 +113,7 @@ function SongDetails() {
           </div>
         </>
         : null}
-    </div>
+    </>
   );
 }
 

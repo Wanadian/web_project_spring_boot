@@ -1,67 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 
-html, body {
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    background-color: black;
-}
-
 .App {
-    height: 100vh;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .App::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.Title {
-    color: #EAE9EC;
-    font-size: 20px;
-    font-family: 'Titillium Web', sans-serif;
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: black;
 }
 
 .Link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .RightOverlay {
-    position: fixed;
-    bottom: 2em;
-    right: 2em;
-    display: flex;
-    flex-flow: column nowrap;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .LeftOverlay {
-    position: fixed;
-    bottom: 2em;
-    left: 2em;
-    display: flex;
-    flex-flow: column nowrap;
+  position: fixed;
+  bottom: 2em;
+  left: 2em;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
-.Form{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+.Form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
-.textArea{
-    color : white;
-    background-color: #343232;
+.TextArea {
+  color: white;
+  background-color: #343232;
 }
 
 .Button {
-    color: white;
-    background-color: rgba(63, 61, 57, 0.29);
-    border: #ff8510 solid 1px;
-    margin: 5px;
-    padding: 7px 15px;
-    border-radius: 7px;
+  color: white;
+  background-color: rgba(63, 61, 57, 0.29);
+  border: #ff8510 solid 1px;
+  margin: 5px;
+  padding: 7px 15px;
+  border-radius: 7px;
 }

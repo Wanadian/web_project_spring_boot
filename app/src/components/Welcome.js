@@ -16,7 +16,7 @@ function Welcome() {
 
   return (
     <div className={'WelcomeBackground'}>
-      <div className={'Welcome'}>
+      <div className={'WelcomePage'}>
         Echo
       </div>
       <div className={'Footer'}>

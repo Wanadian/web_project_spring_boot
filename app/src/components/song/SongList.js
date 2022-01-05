@@ -19,30 +19,26 @@ function SongList() {
     fetchSongs();
   }, []);
 
-  function handleClick(event) {
-    event.preventDefault();
-    navigate(`/songs/add`);
-  }
-
   function handleHomeClick(event) {
     event.preventDefault();
     navigate(`/`);
   }
 
+  function handleAddClick(event) {
+    event.preventDefault();
+    navigate(`/songs/add`);
+  }
+
   return (
-    <div>
+    <>
       <div className={"SongList"}>
         {songs.map((song) =>
           <Song key={song.id} song={song}/>
         )}
       </div>
-      <div className={'LeftOverlay'}>
-        <button className={'Link Button'} onClick={handleClick}>Add song</button>
-      </div>
-      <div className={'RightOverlay'}>
-        <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
-      </div>
-    </div>
+      <button className={'Link Button LeftOverlay'} onClick={handleAddClick}>Add song</button>
+      <button className={'Link Button RightOverlay'} onClick={handleHomeClick}>Home</button>
+    </>
   )
 }
 

@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
 
-.Song{
-    width: 30vw;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    padding: 15px;
+.Song {
+  width: 30vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 15px;
+}
+
+.Title {
+  color: #EAE9EC;
+  font-size: 20px;
+  font-family: 'Titillium Web', sans-serif;
 }

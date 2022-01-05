@@ -19,14 +19,14 @@ function ArtistList() {
     fetchArtists();
   }, []);
 
-  async function handleClick(event) {
-    event.preventDefault();
-    navigate(`/artists/add`);
-  }
-
   function handleHomeClick(event) {
     event.preventDefault();
     navigate(`/`);
+  }
+
+  async function handleAddClick(event) {
+    event.preventDefault();
+    navigate(`/artists/add`);
   }
 
   function deleteArtist(index) {
@@ -36,17 +36,15 @@ function ArtistList() {
   }
 
   return (
-    <div>
+    <>
       <div className={"ArtistList"}>
         {artists.map((artist, index) =>
           <Artist key={artist.id} index={index} artist={artist} deleteArtist={deleteArtist}/>
         )}
       </div>
-      <button className={'Link'} onClick={handleClick}>Add artist</button>
-      <div className={'RightOverlay'}>
-        <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
-      </div>
-    </div>
+      <button className={'Link'} onClick={handleAddClick}>Add artist</button>
+      <button className={'Link Button RightOverlay'} onClick={handleHomeClick}>Home</button>
+    </>
   )
 }
 

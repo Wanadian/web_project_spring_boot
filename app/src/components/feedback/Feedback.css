@@ -1,11 +1,11 @@
-.Comment{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: left;
-    left: 10px;
-    background-color: #383838;
-    border: white solid 1px;
-    border-radius: 5px;
-    color: #EAE9EC;
-    width: 60vw;
+.Comment {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: left;
+  left: 10px;
+  background-color: #383838;
+  border: white solid 1px;
+  border-radius: 5px;
+  color: #EAE9EC;
+  width: 60vw;
 }

@@ -13,14 +13,14 @@
   }
 }
 
-.WelcomeBackground{
+.WelcomeBackground {
   height: 100vh;
-  background: linear-gradient(-45deg, #000000, #2738a6, #460c75, #801313);
+  background: linear-gradient(100deg, #021736, #2535a2, #460c75, #801313);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 15s ease-in infinite;
 }
 
-.Welcome {
+.WelcomePage {
   height: 90%;
   display: flex;
   flex-flow: column nowrap;
