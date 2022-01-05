@@ -12,7 +12,7 @@ public interface SongRepository extends CrudRepository<Song, Long> {
 
   Optional<Song> findByTitle(String title);
 
-  List<Song> findAllBySingerId(long id);
+  List<Song> findAllByArtistId(long id);
 
   void deleteById(long id);
 }

@@ -17,6 +17,10 @@ public class Feedback implements Serializable {
   @JsonBackReference(value = "song-feedback")
   private Song song;
 
+  public Feedback(){
+    super();
+  }
+
   public long getId() {
     return id;
   }

@@ -35,7 +35,7 @@ public class SongService {
 
   public List<Song> getAllSongsByArtistId(long artistId) {
     List<Song> songs = new ArrayList<>();
-    songs.addAll(songRepository.findAllBySingerId(artistId));
+    songs.addAll(songRepository.findAllByArtistId(artistId));
     return songs;
   }
 
@@ -46,7 +46,7 @@ public class SongService {
     }
     Optional<Artist> artist = artistRepository.findById(artistId);
     if (artist.isPresent()) {
-      song.setSinger(artist.get());
+      song.setArtist(artist.get());
       songRepository.save(song);
       return song;
     } else {

@@ -21,7 +21,7 @@ public class Song implements Serializable {
   private String type;
   @ManyToOne(fetch = FetchType.LAZY)
   @JsonBackReference(value = "artist-song")
-  private Artist singer;
+  private Artist artist;
   @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
   @JsonManagedReference(value = "song-feedback")
   private List<Feedback> feedback;
@@ -70,12 +70,12 @@ public class Song implements Serializable {
     this.type = type;
   }
 
-  public Artist getSinger() {
-    return singer;
+  public Artist getArtist() {
+    return artist;
   }
 
-  public void setSinger(Artist singer) {
-    this.singer = singer;
+  public void setArtist(Artist artist) {
+    this.artist = artist;
   }
 
   public List<Feedback> getFeedback() {
