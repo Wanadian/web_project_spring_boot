@@ -17,7 +17,7 @@ html, body {
 }
 
 body {
-  background-color: black;
+  background-color: #181A1B;
 }
 
 .Link {
@@ -58,4 +58,11 @@ body {
   margin: 5px;
   padding: 7px 15px;
   border-radius: 7px;
+}
+
+.AddButton{
+  border: none;
+  background: none;
+  border-radius: 360px;
+  color: #EAE9EC;
 }

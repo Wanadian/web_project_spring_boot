@@ -12,6 +12,7 @@ public class Feedback implements Serializable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private int mark;
+  @Column(name = "COMMENT" , length = 2000000000)
   private String comment;
   @ManyToOne(fetch = FetchType.LAZY)
   @JsonBackReference(value = "song-feedback")

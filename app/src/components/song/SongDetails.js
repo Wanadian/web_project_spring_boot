@@ -81,7 +81,7 @@ function SongDetails() {
               {song.title}
             </div>
             <div>
-              Artist: {"AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"}
+              Artist: {}
             </div>
             <div>
               Type: {song.type}

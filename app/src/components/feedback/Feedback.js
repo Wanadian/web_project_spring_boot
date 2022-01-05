@@ -2,16 +2,14 @@ import './Feedback.css'
 
 function Feedback({feedback}) {
 
-  return (
-    <div className={'Comment'}>
+  return (<div className={'Feedback'}>
       <div>
-        Mark : {feedback.mark}/5
+        <span className={'Mark'}> Mark : {feedback.mark}/5 </span>
       </div>
-      <div>
+      <div className={'Comment'}>
         {feedback.comment}
       </div>
-    </div>
-  )
+    </div>)
 }
 
 export default Feedback;

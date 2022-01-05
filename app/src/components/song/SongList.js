@@ -3,6 +3,8 @@ import './SongList.css'
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPlus, faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 
 function SongList() {
   const [songs, setSongs] = useState([]);
@@ -36,7 +38,9 @@ function SongList() {
           <Song key={song.id} song={song}/>
         )}
       </div>
-      <button className={'Link Button LeftOverlay'} onClick={handleAddClick}>Add song</button>
+      <button className={'Link AddButton LeftOverlay'} onClick={handleAddClick}>
+        <FontAwesomeIcon className={'AddButton'} icon={faPlus} size={'3x'}/>
+      </button>
       <button className={'Link Button RightOverlay'} onClick={handleHomeClick}>Home</button>
     </>
   )

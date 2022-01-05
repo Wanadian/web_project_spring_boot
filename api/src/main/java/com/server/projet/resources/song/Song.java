@@ -19,7 +19,7 @@ public class Song implements Serializable {
   private String title;
   private Date date;
   private String type;
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JsonBackReference(value = "artist-song")
   private Artist artist;
   @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)

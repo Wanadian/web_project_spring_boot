@@ -3,6 +3,8 @@ import Artist from "./Artist";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {faPlus, faPlusCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function ArtistList() {
   const [artists, setArtists] = useState([]);
@@ -42,7 +44,9 @@ function ArtistList() {
           <Artist key={artist.id} index={index} artist={artist} deleteArtist={deleteArtist}/>
         )}
       </div>
-      <button className={'Link'} onClick={handleAddClick}>Add artist</button>
+      <button className={'Link AddButton LeftOverlay'} onClick={handleAddClick}>
+        <FontAwesomeIcon className={'AddButton'} icon={faPlus} size={'3x'}/>
+      </button>
       <button className={'Link Button RightOverlay'} onClick={handleHomeClick}>Home</button>
     </>
   )

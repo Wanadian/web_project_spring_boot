@@ -1,11 +1,22 @@
-.Comment {
+.Feedback {
   display: flex;
   flex-flow: column wrap;
   justify-content: left;
-  left: 10px;
   background-color: #383838;
   border: white solid 1px;
   border-radius: 5px;
   color: #EAE9EC;
   width: 60vw;
+  padding: 10px;
+  margin: 5px;
+}
+
+.Comment{
+  word-break: break-word;
+}
+
+.Mark{
+  border: #801313 solid 1px;
+  border-radius: 5px;
+  font-size: x-large;
 }
