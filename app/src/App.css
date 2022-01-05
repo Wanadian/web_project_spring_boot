@@ -20,6 +20,58 @@ body {
   background-color: #181A1B;
 }
 
+input[type=number]{
+  width: 4vh;
+  margin: 4px;
+}
+
+input[type=text]{
+  width: 40vw;
+  background-color: #1C1E1F;
+  border: 1px solid #444444;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 10px;
+  margin: 4px;
+}
+
+input[type=text]:focus {
+  width: 50vw;
+  transition: width 0.4s ease-in-out;
+  border: 2px solid #ccc;
+}
+
+input[type=number]{
+  width: 30px;
+  color: #EAE9EC;
+  background-color: #1C1E1F;
+  border: 1px solid #444444;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 10px;
+  margin: 4px;
+}
+
+textarea{
+  width: 40%;
+  background-color: #1C1E1F;
+  color: #EAE9EC;
+  border: 1px solid #444444;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 4px;
+  resize: none;
+}
+
+textarea:focus {
+  width: 50%;
+  transition: width 0.4s ease-in-out;
+  border: 2px solid #ccc;
+}
+
 .Link {
   cursor: pointer;
 }
@@ -38,17 +90,6 @@ body {
   left: 2em;
   display: flex;
   flex-flow: column nowrap;
-}
-
-.Form {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-}
-
-.TextArea {
-  color: white;
-  background-color: #343232;
 }
 
 .Button {
