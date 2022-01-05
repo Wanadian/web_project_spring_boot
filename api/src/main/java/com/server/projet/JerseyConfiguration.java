@@ -14,11 +14,11 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("")
 @Configuration
 public class JerseyConfiguration extends ResourceConfig {
-    public JerseyConfiguration() {
-        property(ServletProperties.FILTER_FORWARD_ON_404, true);
-        register(CORSResponseFilter.class);
-        register(ArtistController.class);
-        register(SongController.class);
-        register(FeedbackController.class);
-    }
+  public JerseyConfiguration() {
+    property(ServletProperties.FILTER_FORWARD_ON_404, true);
+    register(CORSResponseFilter.class);
+    register(ArtistController.class);
+    register(SongController.class);
+    register(FeedbackController.class);
+  }
 }

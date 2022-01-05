@@ -8,11 +8,11 @@ import java.util.Optional;
 
 @Repository
 public interface SongRepository extends CrudRepository<Song, Long> {
-    Optional<Song> findById(long id);
+  Optional<Song> findById(long id);
 
-    Optional<Song> findByTitle(String title);
+  Optional<Song> findByTitle(String title);
 
-    List<Song> findAllBySingerId(long id);
+  List<Song> findAllBySingerId(long id);
 
-    void deleteById(long id);
+  void deleteById(long id);
 }

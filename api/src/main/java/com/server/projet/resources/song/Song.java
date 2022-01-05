@@ -12,77 +12,77 @@ import java.util.List;
 
 @Entity
 public class Song implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public long id;
-    public String title;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference(value = "artist-song")
-    public Artist singer;
-    public Date date;
-    public String type;
-    @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    @JsonManagedReference(value = "song-feedback")
-    public List<Feedback> feedback;
-    public String url;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
+  private String url;
+  private String title;
+  private Date date;
+  private String type;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JsonBackReference(value = "artist-song")
+  private Artist singer;
+  @OneToMany(mappedBy = "song", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+  @JsonManagedReference(value = "song-feedback")
+  private List<Feedback> feedback;
 
-    public Song() {
-        super();
-    }
+  public Song() {
+    super();
+  }
 
-    public long getId() {
-        return id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getUrl() {
+    return url;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-    public Artist getSinger() {
-        return singer;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setSinger(Artist singer) {
-        this.singer = singer;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public Date getDate() {
-        return date;
-    }
+  public Date getDate() {
+    return date;
+  }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+  public void setDate(Date date) {
+    this.date = date;
+  }
 
-    public String getType() {
-        return type;
-    }
+  public String getType() {
+    return type;
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public void setType(String type) {
+    this.type = type;
+  }
 
-    public List<Feedback> getFeedback() {
-        return feedback;
-    }
+  public Artist getSinger() {
+    return singer;
+  }
 
-    public void setFeedback(List<Feedback> feedback) {
-        this.feedback = feedback;
-    }
+  public void setSinger(Artist singer) {
+    this.singer = singer;
+  }
 
-    public String getUrl() {
-        return url;
-    }
+  public List<Feedback> getFeedback() {
+    return feedback;
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+  public void setFeedback(List<Feedback> feedback) {
+    this.feedback = feedback;
+  }
 }

@@ -8,48 +8,44 @@ import java.io.Serializable;
 
 @Entity
 public class Feedback implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public long id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference(value = "song-feedback")
-    public Song song;
-    public int mark;
-    public String comment;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
+  private int mark;
+  private String comment;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JsonBackReference(value = "song-feedback")
+  private Song song;
 
-    public Feedback() {
-        super();
-    }
+  public long getId() {
+    return id;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public int getMark() {
+    return mark;
+  }
 
-    public Song getSong() {
-        return song;
-    }
+  public void setMark(int mark) {
+    this.mark = mark;
+  }
 
-    public void setSong(Song song) {
-        this.song = song;
-    }
+  public String getComment() {
+    return comment;
+  }
 
-    public int getMark() {
-        return mark;
-    }
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
 
-    public void setMark(int mark) {
-        this.mark = mark;
-    }
+  public Song getSong() {
+    return song;
+  }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+  public void setSong(Song song) {
+    this.song = song;
+  }
 }
