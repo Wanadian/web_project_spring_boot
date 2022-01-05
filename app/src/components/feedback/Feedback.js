@@ -1,9 +1,10 @@
+import './Feedback.css'
 function Feedback({feedback}) {
 
   return (
-    <div>
+    <div className={'Comment'}>
       <div>
-        {feedback.mark}
+        Mark : {feedback.mark}/5
       </div>
       <div>
         {feedback.comment}

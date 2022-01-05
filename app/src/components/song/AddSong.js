@@ -54,15 +54,20 @@ function AddSong() {
 
     return (
         <div>
-            <Input property={'title'} type={'text'} value={song.title} placeholder={'Title'} handleChangeValue={handleChangeValue}/>
-            <Input property={'type'} type={'text'} value={song.type} placeholder={'Type'} handleChangeValue={handleChangeValue}/>
-            <Input property={'url'} type={'text'} value={song.url} placeholder={'URL'} handleChangeValue={handleChangeValue}/>
-            <Input property={'date'} type={'date'} value={song.date} handleChangeValue={handleChangeValue}/>
-            <select value={song.artistId} onChange={handleSelectChange}>
-                {artists.map((artist) => <option key={artist.id} value={artist.id}>{artist.name}</option>)}
-            </select>
+            <div className={'Form'}>
+                <Input property={'title'} type={'text'} value={song.title} placeholder={'Title'}
+                       handleChangeValue={handleChangeValue}/>
+                <Input property={'type'} type={'text'} value={song.type} placeholder={'Type'}
+                       handleChangeValue={handleChangeValue}/>
+                <Input property={'url'} type={'text'} value={song.url} placeholder={'URL'}
+                       handleChangeValue={handleChangeValue}/>
+                <Input property={'date'} type={'date'} value={song.date} handleChangeValue={handleChangeValue}/>
+                <select value={song.artistId} onChange={handleSelectChange}>
+                    {artists.map((artist) => <option key={artist.id} value={artist.id}>{artist.name}</option>)}
+                </select>
+            </div>
             <button className={'Link'} onClick={handleSubmit}>Save</button>
-            <div className={'Overlay'}>
+            <div className={'RightOverlay'}>
                 <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
                 <button className={'Link Button'} onClick={handleBackClick}>Back</button>
             </div>

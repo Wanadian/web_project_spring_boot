@@ -47,8 +47,6 @@ public class ArtistService {
                 artistRepository.deleteById(artistId);
                 return artist.get();
             } catch (Exception e) {
-                System.out.println("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-                System.out.println(e);
                 return null;
             }
         }

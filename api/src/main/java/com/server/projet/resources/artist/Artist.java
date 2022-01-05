@@ -13,7 +13,7 @@ public class Artist implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     public String name;
-    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference(value = "artist-song")
     public Set<Song> songs;
 
@@ -39,6 +39,10 @@ public class Artist implements Serializable {
 
     public Set<Song> getSongs() {
         return songs;
+    }
+
+    public void addSong(Song addedSong){
+        songs.add(addedSong);
     }
 
     public void setSongs(Set<Song> songs) {

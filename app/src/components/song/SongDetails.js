@@ -17,6 +17,7 @@ function SongDetails() {
   useEffect(() => {
     async function fetchSong() {
       const result = await axios.get(`http://localhost:8080/songs/${songId}`);
+      console.log(result.data)
       if (result.data) {
         setSong(result.data)
       }
@@ -81,7 +82,7 @@ function SongDetails() {
             {song.title}
           </div>
           <div>
-            Artist
+            Artist: {"AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"}
           </div>
           <div>
             Type: {song.type}
@@ -100,7 +101,7 @@ function SongDetails() {
               <button className={'Link'} onClick={toggleFeedbackForm}>Cancel</button>
             </>
           }
-          <div className={'Overlay'}>
+          <div className={'RightOverlay'}>
             <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
             <button className={'Link Button'} onClick={handleBackClick}>Back</button>
           </div>
