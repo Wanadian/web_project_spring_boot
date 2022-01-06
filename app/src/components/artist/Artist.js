@@ -18,6 +18,7 @@ function Artist({index, artist, deleteArtist}) {
   return (
     <>
       <div className={'Artist'}>
+        <img className={'Image'} src={artist.image}/>
         <div className={'Name'}>
           {artist.name}
         </div>

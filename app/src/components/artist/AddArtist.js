@@ -4,7 +4,7 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 function AddArtist() {
-  const [artist, setArtist] = useState({name: ''});
+  const [artist, setArtist] = useState({name: '', image: ''});
   const navigate = useNavigate();
 
   function handleChangeValue(property, value) {
@@ -38,6 +38,8 @@ function AddArtist() {
         <div>
           Name:
           <Input property={'name'} type={'text'} value={artist.name} placeholder={'Name'} handleChangeValue={handleChangeValue}/>
+          Image URL:
+          <Input property={'image'} type={'text'} value={artist.image} placeholder={'URL'} handleChangeValue={handleChangeValue}/>
         </div>
         <button className={'Button'} onClick={handleSubmit}>Save</button>
       </div>

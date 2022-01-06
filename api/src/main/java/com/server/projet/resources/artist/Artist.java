@@ -11,11 +11,12 @@ import java.util.Set;
 public class Artist implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  public long id;
-  public String name;
-  @OneToMany(mappedBy = "artist" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+  private long id;
+  private String name;
+  private String image;
+  @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
   @JsonManagedReference(value = "artist-song")
-  public Set<Song> songs;
+  private Set<Song> songs;
 
   public Artist() {
     super();
@@ -33,6 +34,14 @@ public class Artist implements Serializable {
     return name;
   }
 
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
@@ -45,7 +54,7 @@ public class Artist implements Serializable {
     this.songs = songs;
   }
 
-  public void addSong(Song addedSong){
+  public void addSong(Song addedSong) {
     this.songs.add(addedSong);
   }
 }
