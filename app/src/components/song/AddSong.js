@@ -70,8 +70,8 @@ function AddSong() {
         </div>
       </div>
       <div className={'RightOverlay'}>
-        <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
-        <button className={'Link Button'} onClick={handleBackClick}>Back</button>
+        <button className={'Link OverlayButton'} onClick={handleHomeClick}>Home</button>
+        <button className={'Link OverlayButton'} onClick={handleBackClick}>Back</button>
       </div>
     </>
   )

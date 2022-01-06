@@ -72,6 +72,12 @@ textarea:focus {
   border: 2px solid #ccc;
 }
 
+.List {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .Link {
   cursor: pointer;
 }
@@ -92,7 +98,7 @@ textarea:focus {
   flex-flow: column nowrap;
 }
 
-.Button {
+.OverlayButton {
   color: white;
   background-color: rgba(63, 61, 57, 0.29);
   border: #ff8510 solid 1px;
@@ -106,4 +112,22 @@ textarea:focus {
   background: none;
   border-radius: 360px;
   color: #EAE9EC;
+}
+
+.DeleteButton{
+  color: red;
+  background-color: rgba(63, 61, 57, 0.29);
+  border: #720808 solid 1px;
+  margin: 30px;
+  padding: 7px 15px;
+  border-radius: 7px;
+}
+
+.Button{
+  color: white;
+  background-color: #282828;
+  border: none;
+  margin: 5px;
+  padding: 7px 15px;
+  border-radius: 7px;
 }

@@ -89,22 +89,22 @@ function SongDetails() {
             <div>
               Date: <Moment locale={'en'} date={song.date} format={'LL'}/>
             </div>
-            <button className={'Link'} onClick={handleDeleteClick}>Delete song</button>
+            <button className={'Link DeleteButton'} onClick={handleDeleteClick}>Delete song</button>
             {!showForm ?
-              <button className={'Link'} onClick={toggleFeedbackForm}>Comment</button>
+              <button className={'Link Button'} onClick={toggleFeedbackForm}>Comment</button>
               :
               <>
                 <Input property={'mark'} type={'number'} value={feedback.mark} placeholder={''} min={0} max={5}
                        handleChangeValue={handleChangeValue}/>
                 <Input property={'comment'} type={'textarea'} value={feedback.comment} placeholder={'comment'} handleChangeValue={handleChangeValue}/>
-                <button className={'Link'} onClick={handleFeedbackClick}>Submit</button>
-                <button className={'Link'} onClick={toggleFeedbackForm}>Cancel</button>
+                <button className={'Link Button'} onClick={handleFeedbackClick}>Submit</button>
+                <button className={'Link Button'} onClick={toggleFeedbackForm}>Cancel</button>
               </>
             }
           </div>
           <div className={'RightOverlay'}>
-            <button className={'Link Button'} onClick={handleHomeClick}>Home</button>
-            <button className={'Link Button'} onClick={handleBackClick}>Back</button>
+            <button className={'Link OverlayButton'} onClick={handleHomeClick}>Home</button>
+            <button className={'Link OverlayButton'} onClick={handleBackClick}>Back</button>
           </div>
           <div>
             {song.feedback.map((feedback) =>

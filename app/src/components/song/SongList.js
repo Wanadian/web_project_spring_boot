@@ -33,7 +33,7 @@ function SongList() {
 
   return (
     <>
-      <div className={"SongList"}>
+      <div className={"List"}>
         {songs.map((song) =>
           <Song key={song.id} song={song}/>
         )}
@@ -41,7 +41,7 @@ function SongList() {
       <button className={'Link AddButton LeftOverlay'} onClick={handleAddClick}>
         <FontAwesomeIcon className={'AddButton'} icon={faPlus} size={'3x'}/>
       </button>
-      <button className={'Link Button RightOverlay'} onClick={handleHomeClick}>Home</button>
+      <button className={'Link OverlayButton RightOverlay'} onClick={handleHomeClick}>Home</button>
     </>
   )
 }

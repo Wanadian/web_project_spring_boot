@@ -39,7 +39,7 @@ function ArtistList() {
 
   return (
     <>
-      <div className={"ArtistList"}>
+      <div className={"List"}>
         {artists.map((artist, index) =>
           <Artist key={artist.id} index={index} artist={artist} deleteArtist={deleteArtist}/>
         )}
@@ -47,7 +47,7 @@ function ArtistList() {
       <button className={'Link AddButton LeftOverlay'} onClick={handleAddClick}>
         <FontAwesomeIcon className={'AddButton'} icon={faPlus} size={'3x'}/>
       </button>
-      <button className={'Link Button RightOverlay'} onClick={handleHomeClick}>Home</button>
+      <button className={'Link OverlayButton RightOverlay'} onClick={handleHomeClick}>Home</button>
     </>
   )
 }
