@@ -15,9 +15,9 @@
 
 .WelcomeBackground {
   height: 100vh;
-  background: linear-gradient(100deg, #021736, #2535a2, #460c75, #801313);
+  background: linear-gradient(100deg, #590303, #147504, #053177, #590303);
   background-size: 400% 400%;
-  animation: gradient 15s ease-in infinite;
+  animation: gradient 20s alternate-reverse infinite;
 }
 
 .WelcomePage {

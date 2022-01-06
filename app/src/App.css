@@ -163,9 +163,12 @@ input[type=text]:hover,input[type=number]:hover,textarea:hover,select:hover,inpu
 }
 
 .Image{
-  width: 250px;
-  height: 250px;
+  width: 10vw;
+  height: 25vh;
   object-fit: cover;
-  object-position: 20% 10%;
   border: 5px solid black;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 15px;
 }
