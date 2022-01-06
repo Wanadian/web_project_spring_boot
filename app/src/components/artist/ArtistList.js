@@ -1,4 +1,3 @@
-import '../song/SongList.css'
 import Artist from "./Artist";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
