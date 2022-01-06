@@ -37,10 +37,10 @@ function SongList() {
           <Song key={song.id} song={song}/>
         )}
       </div>
-      <button className={'Link AddButton LeftOverlay'} onClick={handleAddClick}>
+      <button className={'AddButton LeftOverlay'} onClick={handleAddClick}>
         <FontAwesomeIcon className={'AddButton'} icon={faPlus} size={'3x'}/>
       </button>
-      <button className={'Link OverlayButton RightOverlay'} onClick={handleHomeClick}>Home</button>
+      <button className={'OverlayButton RightOverlay'} onClick={handleHomeClick}>Home</button>
     </>
   )
 }

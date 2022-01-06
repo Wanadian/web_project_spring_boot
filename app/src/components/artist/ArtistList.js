@@ -43,10 +43,10 @@ function ArtistList() {
           <Artist key={artist.id} index={index} artist={artist} deleteArtist={deleteArtist}/>
         )}
       </div>
-      <button className={'Link AddButton LeftOverlay'} onClick={handleAddClick}>
+      <button className={'AddButton LeftOverlay'} onClick={handleAddClick}>
         <FontAwesomeIcon className={'AddButton'} icon={faPlus} size={'3x'}/>
       </button>
-      <button className={'Link OverlayButton RightOverlay'} onClick={handleHomeClick}>Home</button>
+      <button className={'OverlayButton RightOverlay'} onClick={handleHomeClick}>Home</button>
     </>
   )
 }

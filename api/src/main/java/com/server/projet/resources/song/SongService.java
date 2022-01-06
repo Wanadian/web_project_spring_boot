@@ -59,6 +59,7 @@ public class SongService {
     Optional<Song> song = songRepository.findById(songId);
     if (song.isPresent()) {
       try {
+        song.get().getArtist().getSongs().remove(song.get());
         songRepository.deleteById(songId);
       } catch (Exception exception) {
         throw new BadRequestException("Song could not be deleted");

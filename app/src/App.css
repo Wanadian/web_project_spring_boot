@@ -20,15 +20,11 @@ body {
   background-color: #181A1B;
 }
 
-input[type=number]{
-  width: 4vh;
-  margin: 4px;
-}
-
 input[type=text]{
+  color: #EAE9EC;
   width: 40vw;
   background-color: #1C1E1F;
-  border: 1px solid #444444;
+  border: 2px solid #444444;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -37,8 +33,6 @@ input[type=text]{
 }
 
 input[type=text]:focus {
-  width: 50vw;
-  transition: width 0.4s ease-in-out;
   border: 2px solid #ccc;
 }
 
@@ -46,7 +40,7 @@ input[type=number]{
   width: 30px;
   color: #EAE9EC;
   background-color: #1C1E1F;
-  border: 1px solid #444444;
+  border: 2px solid #444444;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -58,7 +52,7 @@ textarea{
   width: 40%;
   background-color: #1C1E1F;
   color: #EAE9EC;
-  border: 1px solid #444444;
+  border: 2px solid #444444;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -72,6 +66,26 @@ textarea:focus {
   border: 2px solid #ccc;
 }
 
+select{
+  color: #ccc;
+  background-color: #1C1E1F;
+  border: 2px solid #444444;
+}
+
+input[type=date]{
+  color: #ccc;
+  background-color: #1C1E1F;
+  border: 2px solid #444444;
+}
+
+select:focus,input[type=date]:focus{
+  border: 2px solid #ccc;
+}
+
+input[type=text]:hover,input[type=number]:hover,textarea:hover,select:hover,input[type=date]:hover{
+  border: 2px solid #888787;
+}
+
 .List {
   display: flex;
   flex-flow: row wrap;
@@ -80,6 +94,10 @@ textarea:focus {
 
 .Link {
   cursor: pointer;
+}
+
+.Link:hover{
+  font-weight: bold;
 }
 
 .RightOverlay {
@@ -101,10 +119,11 @@ textarea:focus {
 .OverlayButton {
   color: white;
   background-color: rgba(63, 61, 57, 0.29);
-  border: #ff8510 solid 1px;
+  border: #ff8510 solid 2px;
   margin: 5px;
   padding: 7px 15px;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .AddButton{
@@ -112,22 +131,33 @@ textarea:focus {
   background: none;
   border-radius: 360px;
   color: #EAE9EC;
+  cursor: pointer;
 }
 
 .DeleteButton{
   color: red;
   background-color: rgba(63, 61, 57, 0.29);
-  border: #720808 solid 1px;
+  border: #720808 solid 2px;
   margin: 30px;
   padding: 7px 15px;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .Button{
   color: white;
   background-color: #282828;
-  border: none;
+  border: #282828 solid 2px;
   margin: 5px;
   padding: 7px 15px;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+.Button:hover,.OverlayButton:hover,.DeleteButton:hover{
+  border: 2px solid #ccc;
+}
+
+.Button:active,.OverlayButton:active,.AddButton:active,.DeleteButton:active,.Link:active{
+  transform: translateY(4px);
 }

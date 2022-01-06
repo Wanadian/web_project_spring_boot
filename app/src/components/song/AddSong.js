@@ -56,22 +56,29 @@ function AddSong() {
     <>
       <div className={"AddSongPage"}>
         <div>
+          Title:
           <Input property={'title'} type={'text'} value={song.title} placeholder={'Title'}
                  handleChangeValue={handleChangeValue}/>
+          Type:
           <Input property={'type'} type={'text'} value={song.type} placeholder={'Type'}
                  handleChangeValue={handleChangeValue}/>
+          Song Link:
           <Input property={'url'} type={'text'} value={song.url} placeholder={'URL'}
                  handleChangeValue={handleChangeValue}/>
+          <div>Date:</div>
           <Input property={'date'} type={'date'} value={song.date} handleChangeValue={handleChangeValue}/>
+          <div>Artist:</div>
           <select value={song.artistId} onChange={handleSelectChange}>
             {artists.map((artist) => <option key={artist.id} value={artist.id}>{artist.name}</option>)}
           </select>
-          <button className={'Link'} onClick={handleSubmit}>Save</button>
+          <div>
+            <button className={'Button'} onClick={handleSubmit}>Save</button>
+          </div>
         </div>
       </div>
       <div className={'RightOverlay'}>
-        <button className={'Link OverlayButton'} onClick={handleHomeClick}>Home</button>
-        <button className={'Link OverlayButton'} onClick={handleBackClick}>Back</button>
+        <button className={'OverlayButton'} onClick={handleHomeClick}>Home</button>
+        <button className={'OverlayButton'} onClick={handleBackClick}>Back</button>
       </div>
     </>
   )

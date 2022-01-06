@@ -17,7 +17,6 @@ function SongDetails() {
   useEffect(() => {
     async function fetchSong() {
       const result = await axios.get(`http://localhost:8080/songs/${songId}`);
-      console.log(result.data)
       if (result.data) {
         setSong(result.data)
       }
@@ -89,22 +88,22 @@ function SongDetails() {
             <div>
               Date: <Moment locale={'en'} date={song.date} format={'LL'}/>
             </div>
-            <button className={'Link DeleteButton'} onClick={handleDeleteClick}>Delete song</button>
+            <button className={'DeleteButton'} onClick={handleDeleteClick}>Delete song</button>
             {!showForm ?
-              <button className={'Link Button'} onClick={toggleFeedbackForm}>Comment</button>
+              <button className={'Button'} onClick={toggleFeedbackForm}>Comment</button>
               :
               <>
                 <Input property={'mark'} type={'number'} value={feedback.mark} placeholder={''} min={0} max={5}
                        handleChangeValue={handleChangeValue}/>
                 <Input property={'comment'} type={'textarea'} value={feedback.comment} placeholder={'comment'} handleChangeValue={handleChangeValue}/>
-                <button className={'Link Button'} onClick={handleFeedbackClick}>Submit</button>
-                <button className={'Link Button'} onClick={toggleFeedbackForm}>Cancel</button>
+                <button className={'Button'} onClick={handleFeedbackClick}>Submit</button>
+                <button className={'Button'} onClick={toggleFeedbackForm}>Cancel</button>
               </>
             }
           </div>
           <div className={'RightOverlay'}>
-            <button className={'Link OverlayButton'} onClick={handleHomeClick}>Home</button>
-            <button className={'Link OverlayButton'} onClick={handleBackClick}>Back</button>
+            <button className={'OverlayButton'} onClick={handleHomeClick}>Home</button>
+            <button className={'OverlayButton'} onClick={handleBackClick}>Back</button>
           </div>
           <div>
             {song.feedback.map((feedback) =>

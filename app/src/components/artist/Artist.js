@@ -18,9 +18,11 @@ function Artist({index, artist, deleteArtist}) {
   return (
     <>
       <div className={'Artist'}>
-        {artist.name}
+        <div className={'Name'}>
+          {artist.name}
+        </div>
+        <button className={'DeleteButton'} onClick={handleDeleteClick}>Delete artist</button>
       </div>
-      <button className={'Link DeleteButton'} onClick={handleDeleteClick}>Delete artist</button>
     </>
   )
 }

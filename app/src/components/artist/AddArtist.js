@@ -34,11 +34,16 @@ function AddArtist() {
 
   return (
     <>
-      <Input property={'name'} type={'text'} value={artist.name} placeholder={'Name'} handleChangeValue={handleChangeValue}/>
-      <button className={'Link'} onClick={handleSubmit}>Save</button>
+      <div className={'AddArtistPage'}>
+        <div>
+          Name:
+          <Input property={'name'} type={'text'} value={artist.name} placeholder={'Name'} handleChangeValue={handleChangeValue}/>
+        </div>
+        <button className={'Button'} onClick={handleSubmit}>Save</button>
+      </div>
       <div className={'RightOverlay'}>
-        <button className={'Link OverlayButton'} onClick={handleHomeClick}>Home</button>
-        <button className={'Link OverlayButton'} onClick={handleBackClick}>Back</button>
+        <button className={'OverlayButton'} onClick={handleHomeClick}>Home</button>
+        <button className={'OverlayButton'} onClick={handleBackClick}>Back</button>
       </div>
     </>
   )
