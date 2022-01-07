@@ -80,9 +80,6 @@ function SongDetails() {
               {song.title}
             </div>
             <div>
-              Artist: {}
-            </div>
-            <div>
               Type: {song.type}
             </div>
             <div>

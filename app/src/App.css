@@ -172,3 +172,10 @@ input[type=text]:hover,input[type=number]:hover,textarea:hover,select:hover,inpu
   align-items: center;
   margin: 15px;
 }
+
+.SearchBar{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 20px;
+}

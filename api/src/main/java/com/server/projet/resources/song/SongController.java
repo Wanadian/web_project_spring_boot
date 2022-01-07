@@ -28,6 +28,14 @@ public class SongController {
     return song != null ? Response.status(Response.Status.OK).entity(song).build() : Response.status(Response.Status.NOT_FOUND).build();
   }
 
+  @GET
+  @Path("/search/{title}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getSongByTitle(@PathParam("title") String title){
+    Song song = songService.getSongByTitle(title);
+    return song != null ? Response.status(Response.Status.OK).entity(song).build() : Response.status(Response.Status.NOT_FOUND).build();
+  }
+
   @POST
   @Path("/{artistId}")
   @Consumes(MediaType.APPLICATION_JSON)

@@ -33,6 +33,11 @@ public class SongService {
     return song.isPresent() ? song.get() : null;
   }
 
+  public Song getSongByTitle(String title){
+    Optional<Song> song = songRepository.findByTitle(title);
+    return song.isPresent() ? song.get() : null;
+  }
+
   public List<Song> getAllSongsByArtistId(long artistId) {
     List<Song> songs = new ArrayList<>();
     songs.addAll(songRepository.findAllByArtistId(artistId));
