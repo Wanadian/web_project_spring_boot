@@ -6,7 +6,7 @@ Lancer le serveur BDD avec les lignes de commandes :
       
 ## Lancer l'API
 Avoir un JDK 1.17
-Avoir hibernet
+Avoir hibernate
 
 ## Lancer l'APP
 Faire la commande npm i dans le dossier app
